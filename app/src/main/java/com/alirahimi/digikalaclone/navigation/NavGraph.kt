@@ -5,10 +5,7 @@ import androidx.compose.runtime.Composable
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
-import com.alirahimi.digikalaclone.ui.screens.BasketScreen
-import com.alirahimi.digikalaclone.ui.screens.CategoryScreen
-import com.alirahimi.digikalaclone.ui.screens.ProfileScreen
-import com.alirahimi.digikalaclone.ui.screens.SplashScreen
+import com.alirahimi.digikalaclone.ui.screens.*
 
 @Composable
 fun SetupNavGraph(navController: NavHostController) {
@@ -19,7 +16,7 @@ fun SetupNavGraph(navController: NavHostController) {
         }
 
         composable(route = Screen.Home.route) {
-            SplashScreen(navController = navController)
+            HomeScreen(navController = navController)
         }
 
         composable(route = Screen.Category.route) {
