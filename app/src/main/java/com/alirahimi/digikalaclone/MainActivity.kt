@@ -37,7 +37,8 @@ class MainActivity : ComponentActivity() {
                             navController = navController,
                             onItemClick = {
                                 navController.navigate(it.route)
-                            })
+                            }
+                        )
                     },
                 ) {
                     SetupNavGraph(navController = navController)

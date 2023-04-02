@@ -26,31 +26,28 @@ fun BottomNavigationBar(
 ) {
     val items = listOf(
         BottomNavItem(
-            name = "Home",
+            name = "خانه",
             route = Screen.Home.route,
-            selectedIcon = painterResource(id = R.drawable.digi_logo),
-            deSelectedIcon = painterResource(id = R.drawable.digi_logo)
-
+            selectedIcon = painterResource(id = R.drawable.home_fill),
+            deSelectedIcon = painterResource(id = R.drawable.home_outline)
         ),
         BottomNavItem(
-            name = "Category",
+            name = "دسته بندی",
             route = Screen.Category.route,
-            selectedIcon = painterResource(id = R.drawable.digi_logo),
-            deSelectedIcon = painterResource(id = R.drawable.digi_logo)
+            selectedIcon = painterResource(id = R.drawable.category_fill),
+            deSelectedIcon = painterResource(id = R.drawable.category_outline)
         ),
         BottomNavItem(
-            name = "Basket",
+            name = "سبد خرید",
             route = Screen.Basket.route,
-            selectedIcon = painterResource(id = R.drawable.digi_logo),
-            deSelectedIcon = painterResource(id = R.drawable.digi_logo)
-
+            selectedIcon = painterResource(id = R.drawable.cart_fill),
+            deSelectedIcon = painterResource(id = R.drawable.cart_outline)
         ),
         BottomNavItem(
-            name = "Profile",
+            name = "پروفایل",
             route = Screen.Profile.route,
-            selectedIcon = painterResource(id = R.drawable.digi_logo),
-            deSelectedIcon = painterResource(id = R.drawable.digi_logo)
-
+            selectedIcon = painterResource(id = R.drawable.user_fill),
+            deSelectedIcon = painterResource(id = R.drawable.user_outline)
         )
     )
 
@@ -66,13 +63,16 @@ fun BottomNavigationBar(
             elevation = 5.dp
         ) {
             items.forEachIndexed { index, item ->
+
                 val selected = item.route == backStackEntry.value?.destination?.route
+
                 BottomNavigationItem(
                     selected = selected,
                     onClick = { onItemClick(item) },
                     selectedContentColor = MaterialTheme.colors.selectedBottomBar,
                     unselectedContentColor = MaterialTheme.colors.unSelectedBottomBar,
                     icon = {
+
                         Column(horizontalAlignment = Alignment.CenterHorizontally) {
                             if (selected) {
                                 Icon(
