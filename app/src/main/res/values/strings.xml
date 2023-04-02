@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">DigikalaClone</string>
+    <string name="home">خانه</string>
+    <string name="category">دسته‌بندی‌ها</string>
+    <string name="basket">سبد ‌خرید</string>
+    <string name="my_digikala">دیجی‌کالای ‌من</string>
 </resources>
