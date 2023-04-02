@@ -14,6 +14,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
+import com.alirahimi.digikalaclone.navigation.BottomNavigationBar
 import com.alirahimi.digikalaclone.navigation.SetupNavGraph
 import com.alirahimi.digikalaclone.ui.theme.DigikalaCloneTheme
 
@@ -31,7 +32,13 @@ class MainActivity : ComponentActivity() {
                 Scaffold(
                     topBar = {},
                     floatingActionButton = {},
-                    bottomBar = {},
+                    bottomBar = {
+                        BottomNavigationBar(
+                            navController = navController,
+                            onItemClick = {
+                                navController.navigate(it.route)
+                            })
+                    },
                 ) {
                     SetupNavGraph(navController = navController)
 
