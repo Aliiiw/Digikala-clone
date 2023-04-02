@@ -2,6 +2,7 @@ package com.alirahimi.digikalaclone
 
 import android.annotation.SuppressLint
 import android.os.Bundle
+import android.util.Log
 import androidx.compose.ui.unit.LayoutDirection
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -13,10 +14,15 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
 import com.alirahimi.digikalaclone.navigation.BottomNavigationBar
 import com.alirahimi.digikalaclone.navigation.SetupNavGraph
+import com.alirahimi.digikalaclone.ui.components.AppConfig
 import com.alirahimi.digikalaclone.ui.theme.DigikalaCloneTheme
-import com.alirahimi.digikalaclone.utils.Constants.PERSIAN_LANGUAGE
-import com.alirahimi.digikalaclone.utils.LocaleUtils
+import com.alirahimi.digikalaclone.util.Constants.ENGLISH_LANGUAGE
+import com.alirahimi.digikalaclone.util.Constants.PERSIAN_LANGUAGE
+import com.alirahimi.digikalaclone.util.Constants.USER_LANGUAGE
+import com.alirahimi.digikalaclone.util.LocaleUtils
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
 
     private lateinit var navController: NavHostController
@@ -28,10 +34,18 @@ class MainActivity : ComponentActivity() {
             DigikalaCloneTheme {
                 navController = rememberNavController()
 
-                val context = LocalContext.current
-                LocaleUtils.setLocale(context = context, language = PERSIAN_LANGUAGE)
+                AppConfig()
 
-                CompositionLocalProvider(LocalLayoutDirection provides LayoutDirection.Rtl) {
+                Log.e("2323", USER_LANGUAGE)
+
+                val context = LocalContext.current
+                LocaleUtils.setLocale(context = context, language = USER_LANGUAGE)
+
+                val direction = if (USER_LANGUAGE == ENGLISH_LANGUAGE) LayoutDirection.Ltr
+                else LayoutDirection.Rtl
+
+
+                CompositionLocalProvider(LocalLayoutDirection provides direction) {
                     Scaffold(
                         topBar = {},
                         floatingActionButton = {},

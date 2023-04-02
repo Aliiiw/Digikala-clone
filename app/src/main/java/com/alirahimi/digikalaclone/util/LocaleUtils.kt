@@ -1,4 +1,4 @@
-package com.alirahimi.digikalaclone.utils
+package com.alirahimi.digikalaclone.util
 
 import android.content.Context
 import android.content.res.Configuration
