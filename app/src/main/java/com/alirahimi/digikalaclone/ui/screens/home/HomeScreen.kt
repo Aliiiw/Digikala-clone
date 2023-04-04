@@ -1,4 +1,4 @@
-package com.alirahimi.digikalaclone.ui.screens
+package com.alirahimi.digikalaclone.ui.screens.home
 
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable

@@ -1,6 +1,6 @@
 package com.alirahimi.digikalaclone.di
 
-import com.alirahimi.digikalaclone.data.remote.ApiInterface
+import com.alirahimi.digikalaclone.data.remote.HomeApiInterface
 import com.alirahimi.digikalaclone.util.Constants.BASE_URL
 import com.alirahimi.digikalaclone.util.Constants.TIMEOUT_IN_SECOND
 import dagger.Module
@@ -45,10 +45,5 @@ object NetworkModule {
             .addConverterFactory(GsonConverterFactory.create())
             .client(okHttpClient)
             .build()
-
-    @Singleton
-    @Provides
-    fun provideApiService(retrofit: Retrofit): ApiInterface =
-        retrofit.create(ApiInterface::class.java)
 
 }

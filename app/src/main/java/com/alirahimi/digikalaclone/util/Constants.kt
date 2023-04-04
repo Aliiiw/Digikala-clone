@@ -11,6 +11,6 @@ object Constants {
 
     const val TIMEOUT_IN_SECOND: Long = 60
 
-    const val BASE_URL = ""
+    const val BASE_URL = "https://dig-za0p.onrender.com/api/v1"
 
 }
