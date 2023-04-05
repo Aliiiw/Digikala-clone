@@ -25,3 +25,15 @@ val Colors.unSelectedBottomBar: Color
 val Colors.searchBarBackground: Color
     @Composable
     get() = if (isLight) Color(0XFFF1F0EE) else Color(0XFF303235)
+
+val Colors.darkText: Color
+    @Composable
+    get() = if (isLight) Color(0XFF414244) else Color(0XFFD8D8D8)
+
+val Colors.amber: Color
+    @Composable
+    get() = Color(0XFFFFBF00)
+
+val Colors.grayCategory: Color
+    @Composable
+    get() = Color(0XFFF1F0EE)

@@ -21,4 +21,6 @@ sealed class Screen(val route: String) {
         }
     }
 
+    object WebView : Screen(route = "webView_screen")
+
 }
