@@ -2,6 +2,7 @@ package com.alirahimi.digikalaclone.ui.theme
 
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material.MaterialTheme
+import androidx.compose.material.Shapes
 import androidx.compose.material.darkColors
 import androidx.compose.material.lightColors
 import androidx.compose.runtime.Composable
@@ -41,7 +42,7 @@ fun DigikalaCloneTheme(
     MaterialTheme(
         colors = colors,
         typography = Typography,
-        shapes = Shapes,
+        shapes = Shapes(),
         content = content
     )
 }

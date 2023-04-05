@@ -1,8 +1,9 @@
 package com.alirahimi.digikalaclone.di
 
-import com.alirahimi.digikalaclone.data.remote.HomeApiInterface
+import com.alirahimi.digikalaclone.util.Constants.API_KEY
 import com.alirahimi.digikalaclone.util.Constants.BASE_URL
 import com.alirahimi.digikalaclone.util.Constants.TIMEOUT_IN_SECOND
+import com.alirahimi.digikalaclone.util.Constants.USER_LANGUAGE
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -34,6 +35,12 @@ object NetworkModule {
         .connectTimeout(TIMEOUT_IN_SECOND, TimeUnit.SECONDS)
         .readTimeout(TIMEOUT_IN_SECOND, TimeUnit.SECONDS)
         .writeTimeout(TIMEOUT_IN_SECOND, TimeUnit.SECONDS)
+        .addInterceptor { chain ->
+            val request = chain.request().newBuilder()
+                .addHeader(name = "x-api-key", value = API_KEY)
+                .addHeader(name = "lang", value = USER_LANGUAGE)
+            chain.proceed(request = request.build())
+        }
         .addInterceptor(interceptorToApis())
         .build()
 

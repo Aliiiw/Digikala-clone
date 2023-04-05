@@ -5,6 +5,10 @@ plugins {
     id 'com.google.dagger.hilt.android'
 }
 
+def apiKeyPropertiesFile = rootProject.file("key.properties")
+def apiKeyProperties = new Properties()
+apiKeyProperties.load(new FileInputStream(apiKeyPropertiesFile))
+
 android {
     namespace 'com.alirahimi.digikalaclone'
     compileSdk 33
@@ -15,6 +19,8 @@ android {
         targetSdk 33
         versionCode 1
         versionName "1.0"
+
+        buildConfigField("String", "X_API_KEY", apiKeyProperties['X_API_KEY'])
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables {
@@ -95,6 +101,11 @@ dependencies {
 
     //system ui controller
     implementation 'com.google.accompanist:accompanist-systemuicontroller:0.28.0'
+
+    //Accompanist-Pager
+    implementation "com.google.accompanist:accompanist-pager:0.29.0-alpha"
+    implementation "com.google.accompanist:accompanist-pager-indicators:0.29.0-alpha"
+
 
 }
 
