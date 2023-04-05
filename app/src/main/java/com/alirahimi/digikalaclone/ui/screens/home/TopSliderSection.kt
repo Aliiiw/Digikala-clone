@@ -3,6 +3,7 @@ package com.alirahimi.digikalaclone.ui.screens.home
 import android.util.Log
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.interaction.collectIsDraggedAsState
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.runtime.*
@@ -27,10 +28,11 @@ import com.google.accompanist.pager.HorizontalPager
 import com.google.accompanist.pager.HorizontalPagerIndicator
 import com.google.accompanist.pager.rememberPagerState
 import kotlinx.coroutines.delay
+import kotlinx.coroutines.flow.collectLatest
 
 @OptIn(ExperimentalPagerApi::class)
 @Composable
-fun TopSlider(viewModel: HomeViewModel = hiltViewModel()) {
+fun TopSliderSection(viewModel: HomeViewModel = hiltViewModel()) {
 
     var loading by remember {
         mutableStateOf(false)
@@ -131,12 +133,19 @@ fun TopSlider(viewModel: HomeViewModel = hiltViewModel()) {
                     )
                 }
             }
-
-            LaunchedEffect(key1 = pagerState.currentPage) {
-                delay(6000)
-                var newPosition = pagerState.currentPage + 1
-                if (newPosition > sliderList.size - 1) newPosition = 0
-                pagerState.scrollToPage(newPosition)
+            val isDraggedState = pagerState.interactionSource.collectIsDraggedAsState()
+            LaunchedEffect(isDraggedState) {
+                snapshotFlow { isDraggedState.value }
+                    .collectLatest { isDragged ->
+                        if (!isDragged) {
+                            while (true) {
+                                delay(6000)
+                                var newPosition = pagerState.currentPage + 1
+                                if (newPosition > sliderList.size - 1) newPosition = 0
+                                pagerState.animateScrollToPage(newPosition)
+                            }
+                        }
+                    }
             }
         }
     }

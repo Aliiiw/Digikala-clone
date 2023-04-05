@@ -44,6 +44,7 @@ fun Home(navController: NavHostController, viewModel: HomeViewModel = hiltViewMo
                 }
             }
         ) {
+
             Column(
                 modifier = Modifier
                     .background(Color.White)
@@ -57,9 +58,9 @@ fun Home(navController: NavHostController, viewModel: HomeViewModel = hiltViewMo
                     viewModel.getSlider()
                 }
 
-                TopSlider()
+                SearchBarSection()
+                TopSliderSection()
             }
-
         }
     }
 }
