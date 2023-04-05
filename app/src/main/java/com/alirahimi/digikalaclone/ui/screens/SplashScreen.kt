@@ -1,5 +1,6 @@
 package com.alirahimi.digikalaclone.ui.screens
 
+import androidx.compose.animation.core.*
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
@@ -8,6 +9,7 @@ import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -39,11 +41,12 @@ fun Splash() {
             .fillMaxSize(),
         contentAlignment = Alignment.Center
     ) {
-        Image(
-            modifier = Modifier.size(250.dp),
-            painter = painterResource(id = R.drawable.digi_logo),
-            contentDescription = null
-        )
+        InfiniteAnimation()
+//        Image(
+//            modifier = Modifier.size(250.dp),
+//            painter = painterResource(id = R.drawable.digi_logo),
+//            contentDescription = null
+//        )
 
         Box(
             modifier = Modifier
@@ -67,4 +70,29 @@ fun Splash() {
             Loading3Dots(isDark = false)
         }
     }
+}
+
+@Composable
+fun InfiniteAnimation() {
+
+    val infiniteTransition = rememberInfiniteTransition()
+
+    val size by infiniteTransition.animateFloat(
+        initialValue = 150f,
+        targetValue = 250f,
+        animationSpec = infiniteRepeatable(
+            animation = tween(
+                durationMillis = 800,
+                delayMillis = 100
+            ),
+            repeatMode = RepeatMode.Reverse
+        )
+    )
+    Image(
+        modifier = Modifier.size(size.dp),
+        painter = painterResource(id = R.drawable.digi_logo),
+        contentDescription = null
+    )
+
+
 }

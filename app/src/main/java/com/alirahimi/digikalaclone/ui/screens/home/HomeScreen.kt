@@ -1,10 +1,10 @@
 package com.alirahimi.digikalaclone.ui.screens.home
 
-import android.util.Log
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.runtime.Composable
@@ -28,39 +28,35 @@ fun HomeScreen(navController: NavHostController) {
 @Composable
 fun Home(navController: NavHostController, viewModel: HomeViewModel = hiltViewModel()) {
 
-    Column(
-        modifier = Modifier
-            .background(Color.White)
-            .fillMaxSize()
-    ) {
-        val refreshScope = rememberCoroutineScope()
-        val swipeRefreshState = rememberSwipeRefreshState(isRefreshing = false)
+    LaunchedEffect(true) {
+        refreshDataFromServer(viewModel = viewModel)
+    }
 
-        SwipeRefresh(
-            state = swipeRefreshState,
-            onRefresh = {
-                refreshScope.launch {
-                    Log.e("2323", "swipe called")
-                }
-            }
-        ) {
+    SwipeRefreshSection(navController = navController, viewModel = viewModel)
+}
 
-            Column(
-                modifier = Modifier
-                    .background(Color.White)
-                    .fillMaxSize()
-                    .verticalScroll(
-                        rememberScrollState()
-                    )
-                    .padding(bottom = 60.dp)
-            ) {
-                LaunchedEffect(true) {
-                    viewModel.getSlider()
-                }
+@Composable
+fun SwipeRefreshSection(navController: NavHostController, viewModel: HomeViewModel) {
+    val refreshScope = rememberCoroutineScope()
+    val swipeRefreshState = rememberSwipeRefreshState(isRefreshing = false)
 
-                SearchBarSection()
-                TopSliderSection()
+    SwipeRefresh(
+        state = swipeRefreshState,
+        onRefresh = {
+            refreshScope.launch {
+                refreshDataFromServer(viewModel = viewModel)
             }
         }
+    ) {
+        LazyColumn(modifier = Modifier.fillMaxSize()) {
+
+            item { SearchBarSection() }
+            item { TopSliderSection() }
+
+        }
     }
+}
+
+private suspend fun refreshDataFromServer(viewModel: HomeViewModel) {
+    viewModel.getSlider()
 }
