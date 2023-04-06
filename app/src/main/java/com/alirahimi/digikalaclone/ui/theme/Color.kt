@@ -37,3 +37,21 @@ val Colors.amber: Color
 val Colors.grayCategory: Color
     @Composable
     get() = Color(0XFFF1F0EE)
+
+val Colors.digikalaLightRed: Color
+    @Composable
+    get() = Color(0XFFEF4056)
+
+val Colors.semiDarkText: Color
+    @Composable
+    get() = if (isLight) Color(0XFF5C5E61) else Color(0XFFD8D8D8)
+
+val Colors.digikalaDarkRed: Color
+    @Composable
+    get() = Color(0XFFE6123D)
+
+
+val Colors.darkCyan: Color
+    @Composable
+    get() = Color(0XFF0FABC6)
+

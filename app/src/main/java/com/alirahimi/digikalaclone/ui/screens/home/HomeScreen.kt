@@ -1,12 +1,14 @@
 package com.alirahimi.digikalaclone.ui.screens.home
 
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavHostController
 import com.alirahimi.digikalaclone.util.Constants
@@ -47,16 +49,17 @@ fun SwipeRefreshSection(navController: NavHostController, viewModel: HomeViewMod
             }
         }
     ) {
-        LazyColumn(modifier = Modifier.fillMaxSize()) {
+        LazyColumn(modifier = Modifier.fillMaxSize().padding(bottom = 60.dp)) {
 
             item { SearchBarSection() }
             item { TopSliderSection() }
             item { ShowCaseSection(navController = navController) }
+            item { AmazingItemsSection() }
 
         }
     }
 }
 
 private suspend fun refreshDataFromServer(viewModel: HomeViewModel) {
-    viewModel.getSlider()
+    viewModel.getAllDataFromServer()
 }
