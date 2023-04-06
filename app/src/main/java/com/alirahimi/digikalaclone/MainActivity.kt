@@ -39,8 +39,6 @@ class MainActivity : ComponentActivity() {
 
                 AppConfig()
 
-                Log.e("2323", USER_LANGUAGE)
-
                 val context = LocalContext.current
                 LocaleUtils.setLocale(context = context, language = USER_LANGUAGE)
 

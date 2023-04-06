@@ -14,6 +14,14 @@ import com.alirahimi.digikalaclone.ui.components.RoundedIconBox
 import com.alirahimi.digikalaclone.ui.theme.LocalSpacing
 import com.alirahimi.digikalaclone.ui.theme.amber
 import com.alirahimi.digikalaclone.ui.theme.grayCategory
+import com.alirahimi.digikalaclone.util.Constants.DIGIJET_URL
+import com.alirahimi.digikalaclone.util.Constants.DIGIMONTHSHOP_URL
+import com.alirahimi.digikalaclone.util.Constants.DIGIPAY_URL
+import com.alirahimi.digikalaclone.util.Constants.DIGIPINDO_URL
+import com.alirahimi.digikalaclone.util.Constants.DIGIPLUS_URL
+import com.alirahimi.digikalaclone.util.Constants.GIFTCARD_URL
+import com.alirahimi.digikalaclone.util.Constants.MORE_URL
+import com.alirahimi.digikalaclone.util.Constants.SHOPPING_STYLE_URL
 
 @Composable
 fun ShowCaseSection(navController: NavHostController) {
@@ -36,7 +44,7 @@ fun ShowCaseSection(navController: NavHostController) {
                 image = painterResource(id = R.drawable.digijet),
                 onClick = onBoxCaseClick(
                     navController = navController,
-                    url = "https://www.digikalajet.com/user/address"
+                    url = DIGIJET_URL
                 )
             )
 
@@ -45,7 +53,7 @@ fun ShowCaseSection(navController: NavHostController) {
                 image = painterResource(id = R.drawable.auction),
                 onClick = onBoxCaseClick(
                     navController = navController,
-                    url = "https://www.digistyle.com/sale-landing/?utm_source=digikala&utm_medium=circle_badge&utm_campaign=style&promo_name=style&promo_position=circle_badge"
+                    url = SHOPPING_STYLE_URL
                 )
             )
 
@@ -54,7 +62,7 @@ fun ShowCaseSection(navController: NavHostController) {
                 image = painterResource(id = R.drawable.digipay),
                 onClick = onBoxCaseClick(
                     navController,
-                    url = "https://www.digikala.com/my-digipay/?promo_name=my-digipay&promo_position=circle_badge"
+                    url = DIGIPAY_URL
                 )
             )
 
@@ -64,7 +72,7 @@ fun ShowCaseSection(navController: NavHostController) {
                 backgroundColor = MaterialTheme.colors.amber,
                 onClick = onBoxCaseClick(
                     navController,
-                    url = "https://www.pindo.ir/?utm_source=digikala&utm_medium=circle_badge&utm_campaign=pindo&promo_name=pindo&promo_position=circle_badge"
+                    url = DIGIPINDO_URL
                 )
             )
         }
@@ -78,7 +86,10 @@ fun ShowCaseSection(navController: NavHostController) {
             RoundedIconBox(
                 title = stringResource(id = R.string.digi_shopping),
                 image = painterResource(id = R.drawable.shopping),
-                onClick = {}
+                onClick = onBoxCaseClick(
+                    navController,
+                    url = DIGIMONTHSHOP_URL
+                )
             )
 
             RoundedIconBox(
@@ -86,7 +97,7 @@ fun ShowCaseSection(navController: NavHostController) {
                 image = painterResource(id = R.drawable.giftcard),
                 onClick = onBoxCaseClick(
                     navController,
-                    url = "https://www.digikala.com/landing/gift-card-landing/?promo_name=gift_landing&promo_position=circle_badge"
+                    url = GIFTCARD_URL
                 )
             )
 
@@ -95,7 +106,7 @@ fun ShowCaseSection(navController: NavHostController) {
                 image = painterResource(id = R.drawable.digiplus),
                 onClick = onBoxCaseClick(
                     navController,
-                    url = "https://www.digikala.com/plus/landing/?promo_name=plus&promo_position=circle_badge"
+                    url = DIGIPLUS_URL
                 )
             )
 
@@ -103,7 +114,10 @@ fun ShowCaseSection(navController: NavHostController) {
                 title = stringResource(id = R.string.digi_more),
                 image = painterResource(id = R.drawable.more),
                 backgroundColor = MaterialTheme.colors.grayCategory,
-                onClick = {}
+                onClick = onBoxCaseClick(
+                    navController,
+                    url = MORE_URL
+                )
             )
         }
     }

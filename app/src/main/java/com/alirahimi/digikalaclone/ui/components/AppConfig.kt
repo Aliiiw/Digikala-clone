@@ -1,11 +1,9 @@
 package com.alirahimi.digikalaclone.ui.components
 
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.LaunchedEffect
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.alirahimi.digikalaclone.util.Constants.USER_LANGUAGE
 import com.alirahimi.digikalaclone.viewmodel.DataStoreViewModel
-import kotlinx.coroutines.runBlocking
 
 @Composable
 fun AppConfig(dataStore: DataStoreViewModel = hiltViewModel()) {
@@ -14,7 +12,8 @@ fun AppConfig(dataStore: DataStoreViewModel = hiltViewModel()) {
 
 }
 
-private fun getDataStoreVariables(dataStore: DataStoreViewModel) = runBlocking {
+private fun getDataStoreVariables(dataStore: DataStoreViewModel) {
     USER_LANGUAGE = dataStore.getUserLanguage()
+    dataStore.saveUserLanguage(value = USER_LANGUAGE)
 }
 

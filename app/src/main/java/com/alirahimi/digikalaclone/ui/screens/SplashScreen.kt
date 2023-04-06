@@ -29,7 +29,11 @@ fun SplashScreen(navController: NavHostController) {
 
     LaunchedEffect(true) {
         delay(2500)
-        navController.navigate(Screen.Home.route)
+        navController.navigate(Screen.Home.route) {
+            popUpTo(Screen.Splash.route) {
+                inclusive = true
+            }
+        }
     }
 }
 
@@ -53,7 +57,7 @@ fun Splash() {
                 .fillMaxSize()
                 .padding(100.dp),
             contentAlignment = Alignment.BottomCenter
-        ){
+        ) {
             Image(
                 modifier = Modifier.height(30.dp),
                 painter = painterResource(id = R.drawable.digi_txt_white),
@@ -66,7 +70,7 @@ fun Splash() {
                 .fillMaxSize()
                 .padding(20.dp),
             contentAlignment = Alignment.BottomCenter
-        ){
+        ) {
             Loading3Dots(isDark = false)
         }
     }
