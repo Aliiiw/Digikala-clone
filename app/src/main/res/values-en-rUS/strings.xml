@@ -19,4 +19,5 @@
     <string name="category_title">Choose By Category</string>
     <string name="best_selling_product">Best Selling Products</string>
     <string name="most_viewed_product">Most Viewed Products</string>
+    <string name="most_favorite_product">Most Favorite Products</string>
 </resources>
