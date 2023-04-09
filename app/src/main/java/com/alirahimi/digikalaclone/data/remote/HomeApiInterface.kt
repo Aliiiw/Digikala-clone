@@ -1,10 +1,7 @@
 package com.alirahimi.digikalaclone.data.remote
 
 import com.alirahimi.digikalaclone.data.model.ResponseResult
-import com.alirahimi.digikalaclone.data.model.home.AmazingItem
-import com.alirahimi.digikalaclone.data.model.home.MainCategory
-import com.alirahimi.digikalaclone.data.model.home.ProposalBanner
-import com.alirahimi.digikalaclone.data.model.home.Slider
+import com.alirahimi.digikalaclone.data.model.home.*
 import retrofit2.Response
 import retrofit2.http.GET
 
@@ -26,5 +23,8 @@ interface HomeApiInterface {
 
     @GET("v1/getCenterBanners")
     suspend fun getCenterBanners(): Response<ResponseResult<List<Slider>>>
+
+    @GET("v1/getBestsellerProducts")
+    suspend fun getBestsellerProducts(): Response<ResponseResult<List<StoreProduct>>>
 
 }

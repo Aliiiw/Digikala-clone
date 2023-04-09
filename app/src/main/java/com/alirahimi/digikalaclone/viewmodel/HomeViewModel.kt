@@ -2,10 +2,7 @@ package com.alirahimi.digikalaclone.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.alirahimi.digikalaclone.data.model.home.AmazingItem
-import com.alirahimi.digikalaclone.data.model.home.MainCategory
-import com.alirahimi.digikalaclone.data.model.home.ProposalBanner
-import com.alirahimi.digikalaclone.data.model.home.Slider
+import com.alirahimi.digikalaclone.data.model.home.*
 import com.alirahimi.digikalaclone.data.remote.NetworkResult
 import com.alirahimi.digikalaclone.repository.HomeRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -27,6 +24,8 @@ class HomeViewModel @Inject constructor(private val repository: HomeRepository) 
         MutableStateFlow<NetworkResult<List<MainCategory>>>(NetworkResult.Loading())
     val centerBannerItemsFlow =
         MutableStateFlow<NetworkResult<List<Slider>>>(NetworkResult.Loading())
+    val bestSellerItemsFlow =
+        MutableStateFlow<NetworkResult<List<StoreProduct>>>(NetworkResult.Loading())
 
     suspend fun getAllDataFromServer() {
         viewModelScope.launch {
@@ -65,6 +64,12 @@ class HomeViewModel @Inject constructor(private val repository: HomeRepository) 
             launch {
                 centerBannerItemsFlow.emit(
                     repository.getCenterBanners()
+                )
+            }
+
+            launch {
+                bestSellerItemsFlow.emit(
+                    repository.getBestsellerProducts()
                 )
             }
         }

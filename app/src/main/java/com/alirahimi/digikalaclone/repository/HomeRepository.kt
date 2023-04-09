@@ -1,9 +1,6 @@
 package com.alirahimi.digikalaclone.repository
 
-import com.alirahimi.digikalaclone.data.model.home.AmazingItem
-import com.alirahimi.digikalaclone.data.model.home.MainCategory
-import com.alirahimi.digikalaclone.data.model.home.ProposalBanner
-import com.alirahimi.digikalaclone.data.model.home.Slider
+import com.alirahimi.digikalaclone.data.model.home.*
 import com.alirahimi.digikalaclone.data.remote.BaseApiResponse
 import com.alirahimi.digikalaclone.data.remote.HomeApiInterface
 import com.alirahimi.digikalaclone.data.remote.NetworkResult
@@ -34,5 +31,8 @@ class HomeRepository @Inject constructor(private val api: HomeApiInterface) : Ba
         api.getCenterBanners()
     }
 
-
+    suspend fun getBestsellerProducts(): NetworkResult<List<StoreProduct>> = safeApiCall {
+        api.getBestsellerProducts()
+    }
+    
 }
