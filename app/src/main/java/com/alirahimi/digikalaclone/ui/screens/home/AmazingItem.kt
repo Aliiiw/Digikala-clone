@@ -31,7 +31,7 @@ import com.alirahimi.digikalaclone.util.DigitHelper.digitByLocateAndSeparator
 fun AmazingItem(item: AmazingItem) {
     Card(
         modifier = Modifier
-            .width(170.dp)
+            .width(180.dp)
             .padding(
                 vertical = MaterialTheme.spacing.semiLarge,
                 horizontal = MaterialTheme.spacing.semiSmall

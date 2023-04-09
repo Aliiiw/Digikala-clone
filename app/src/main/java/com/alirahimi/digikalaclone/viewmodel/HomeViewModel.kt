@@ -3,6 +3,7 @@ package com.alirahimi.digikalaclone.viewmodel
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.alirahimi.digikalaclone.data.model.home.AmazingItem
+import com.alirahimi.digikalaclone.data.model.home.MainCategory
 import com.alirahimi.digikalaclone.data.model.home.ProposalBanner
 import com.alirahimi.digikalaclone.data.model.home.Slider
 import com.alirahimi.digikalaclone.data.remote.NetworkResult
@@ -22,6 +23,10 @@ class HomeViewModel @Inject constructor(private val repository: HomeRepository) 
         MutableStateFlow<NetworkResult<List<AmazingItem>>>(NetworkResult.Loading())
     val proposalBannerItemsFlow =
         MutableStateFlow<NetworkResult<List<ProposalBanner>>>(NetworkResult.Loading())
+    val categoryItemsFlow =
+        MutableStateFlow<NetworkResult<List<MainCategory>>>(NetworkResult.Loading())
+    val centerBannerItemsFlow =
+        MutableStateFlow<NetworkResult<List<Slider>>>(NetworkResult.Loading())
 
     suspend fun getAllDataFromServer() {
         viewModelScope.launch {
@@ -48,6 +53,18 @@ class HomeViewModel @Inject constructor(private val repository: HomeRepository) 
             launch {
                 proposalBannerItemsFlow.emit(
                     repository.getProposalBanners()
+                )
+            }
+
+            launch {
+                categoryItemsFlow.emit(
+                    repository.getCategories()
+                )
+            }
+
+            launch {
+                centerBannerItemsFlow.emit(
+                    repository.getCenterBanners()
                 )
             }
         }

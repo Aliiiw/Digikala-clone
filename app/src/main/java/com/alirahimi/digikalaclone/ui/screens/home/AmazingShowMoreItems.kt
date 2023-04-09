@@ -23,7 +23,7 @@ import com.alirahimi.digikalaclone.ui.theme.digikalaLightRed
 fun AmazingShowMoreItems() {
     Card(
         modifier = Modifier
-            .size(180.dp, 375.dp)
+            .size(180.dp, 390.dp)
             .padding(
                 end = MaterialTheme.spacing.medium,
                 start = MaterialTheme.spacing.semiSmall,

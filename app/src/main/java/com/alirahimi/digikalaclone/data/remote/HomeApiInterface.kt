@@ -2,6 +2,7 @@ package com.alirahimi.digikalaclone.data.remote
 
 import com.alirahimi.digikalaclone.data.model.ResponseResult
 import com.alirahimi.digikalaclone.data.model.home.AmazingItem
+import com.alirahimi.digikalaclone.data.model.home.MainCategory
 import com.alirahimi.digikalaclone.data.model.home.ProposalBanner
 import com.alirahimi.digikalaclone.data.model.home.Slider
 import retrofit2.Response
@@ -19,5 +20,11 @@ interface HomeApiInterface {
 
     @GET("v1/get4Banners")
     suspend fun getProposalBanners(): Response<ResponseResult<List<ProposalBanner>>>
+
+    @GET("v1/getCategories")
+    suspend fun getCategories(): Response<ResponseResult<List<MainCategory>>>
+
+    @GET("v1/getCenterBanners")
+    suspend fun getCenterBanners(): Response<ResponseResult<List<Slider>>>
 
 }

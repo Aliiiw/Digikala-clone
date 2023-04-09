@@ -49,7 +49,9 @@ fun SwipeRefreshSection(navController: NavHostController, viewModel: HomeViewMod
             }
         }
     ) {
-        LazyColumn(modifier = Modifier.fillMaxSize().padding(bottom = 60.dp)) {
+        LazyColumn(modifier = Modifier
+            .fillMaxSize()
+            .padding(bottom = 60.dp)) {
 
             item { SearchBarSection() }
             item { TopSliderSection() }
@@ -57,6 +59,16 @@ fun SwipeRefreshSection(navController: NavHostController, viewModel: HomeViewMod
             item { AmazingItemsSection() }
             item { ProposalCardSection() }
             item { AmazingSuperMarketItemsSection() }
+            item { CategoryListSectionSection() }
+            item { CenterBannerSection(bannerNumber = 1) }
+
+            item { CenterBannerSection(bannerNumber = 2) }
+
+            item { CenterBannerSection(bannerNumber = 3) }
+
+            item { CenterBannerSection(bannerNumber = 4) }
+
+            item { CenterBannerSection(bannerNumber = 5) }
 
         }
     }
