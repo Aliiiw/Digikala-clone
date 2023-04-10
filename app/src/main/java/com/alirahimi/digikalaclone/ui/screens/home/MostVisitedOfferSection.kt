@@ -82,7 +82,7 @@ fun MostVisitedOfferSection(viewModel: HomeViewModel = hiltViewModel()) {
             itemsIndexed(mostVisitedList) { index, item ->
                 ProductHorizontalCard(
                     name = item.name,
-                    id = DigitHelper.digitByLocate((index + 1).toString()),
+                    id = DigitHelper.digitByLocateAndSeparator((index + 1).toString()),
                     imageUrl = item.image
                 )
             }

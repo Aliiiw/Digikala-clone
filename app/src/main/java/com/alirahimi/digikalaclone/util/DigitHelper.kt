@@ -1,5 +1,8 @@
 package com.alirahimi.digikalaclone.util
 
+import com.alirahimi.digikalaclone.util.Constants.ENGLISH_LANGUAGE
+import com.alirahimi.digikalaclone.util.Constants.USER_LANGUAGE
+import java.math.BigDecimal
 import java.text.DecimalFormat
 
 object DigitHelper {
@@ -50,4 +53,9 @@ object DigitHelper {
             price
         }
     }
+
+    fun toomanToDollar(price: Long): String {
+        if (USER_LANGUAGE == ENGLISH_LANGUAGE) return (price / 3000L).toString() else return price.toString()
+    }
+
 }

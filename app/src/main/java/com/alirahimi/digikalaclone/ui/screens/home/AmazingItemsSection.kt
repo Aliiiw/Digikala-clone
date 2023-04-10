@@ -65,5 +65,4 @@ fun AmazingItemsSection(viewModel: HomeViewModel = hiltViewModel()) {
             }
         }
     }
-
 }

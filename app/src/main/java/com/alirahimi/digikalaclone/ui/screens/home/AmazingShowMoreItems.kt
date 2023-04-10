@@ -2,7 +2,6 @@ package com.alirahimi.digikalaclone.ui.screens.home
 
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.Card
-import androidx.compose.material.Icon
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
@@ -16,6 +15,7 @@ import androidx.compose.ui.unit.dp
 import com.alirahimi.digikalaclone.ui.theme.roundedShape
 import com.alirahimi.digikalaclone.ui.theme.spacing
 import com.alirahimi.digikalaclone.R
+import com.alirahimi.digikalaclone.ui.components.IconRotation
 import com.alirahimi.digikalaclone.ui.theme.darkText
 import com.alirahimi.digikalaclone.ui.theme.digikalaLightRed
 
@@ -37,11 +37,9 @@ fun AmazingShowMoreItems() {
             horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement = Arrangement.Center
         ) {
-            Icon(
+            IconRotation(
                 painter = painterResource(id = R.drawable.show_more),
-                contentDescription = "",
-                tint = MaterialTheme.colors.digikalaLightRed,
-                modifier = Modifier.size(40.dp)
+                tint = MaterialTheme.colors.digikalaLightRed
             )
 
             Spacer(modifier = Modifier.height(20.dp))

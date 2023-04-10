@@ -15,6 +15,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import com.alirahimi.digikalaclone.R
+import com.alirahimi.digikalaclone.ui.components.IconRotation
 import com.alirahimi.digikalaclone.ui.theme.*
 
 @Composable
@@ -31,11 +32,9 @@ fun MostFavoriteProductsShowMoreCard() {
         verticalArrangement = Arrangement.Center
     ) {
 
-        Icon(
+        IconRotation(
             painter = painterResource(id = R.drawable.show_more),
-            contentDescription = "",
-            tint = MaterialTheme.colors.darkCyan,
-            modifier = Modifier.size(40.dp)
+            tint = MaterialTheme.colors.darkCyan
         )
 
         Spacer(modifier = Modifier.height(20.dp))
@@ -46,6 +45,5 @@ fun MostFavoriteProductsShowMoreCard() {
             fontWeight = FontWeight.SemiBold,
             color = MaterialTheme.colors.darkText
         )
-
     }
 }

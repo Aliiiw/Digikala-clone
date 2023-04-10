@@ -62,7 +62,7 @@ fun MostDiscountedProductsSection(
                 .fillMaxWidth()
                 .padding(MaterialTheme.spacing.small),
             text = stringResource(id = R.string.most_discount_product),
-            textAlign = TextAlign.Right,
+            textAlign = TextAlign.Start,
             style = MaterialTheme.typography.h3,
             fontWeight = FontWeight.SemiBold,
             color = MaterialTheme.colors.darkText

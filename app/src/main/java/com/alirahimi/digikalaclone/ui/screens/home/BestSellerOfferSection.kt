@@ -21,6 +21,7 @@ import com.alirahimi.digikalaclone.viewmodel.HomeViewModel
 import com.alirahimi.digikalaclone.R
 import com.alirahimi.digikalaclone.ui.theme.darkText
 import com.alirahimi.digikalaclone.util.DigitHelper.digitByLocate
+import com.alirahimi.digikalaclone.util.DigitHelper.digitByLocateAndSeparator
 
 @Composable
 fun BestSellerOfferSection(viewModel: HomeViewModel = hiltViewModel()) {
@@ -81,7 +82,7 @@ fun BestSellerOfferSection(viewModel: HomeViewModel = hiltViewModel()) {
             itemsIndexed(bestSellerList) { index, item ->
                 ProductHorizontalCard(
                     name = item.name,
-                    id = digitByLocate((index + 1).toString()),
+                    id = digitByLocateAndSeparator((index + 1).toString()),
                     imageUrl = item.image
                 )
             }

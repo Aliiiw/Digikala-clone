@@ -12,6 +12,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
@@ -23,9 +24,11 @@ import coil.compose.rememberAsyncImagePainter
 import com.alirahimi.digikalaclone.data.model.home.AmazingItem
 import com.alirahimi.digikalaclone.R
 import com.alirahimi.digikalaclone.ui.theme.*
+import com.alirahimi.digikalaclone.util.Constants
 import com.alirahimi.digikalaclone.util.DigitHelper.applyDiscount
 import com.alirahimi.digikalaclone.util.DigitHelper.digitByLocate
 import com.alirahimi.digikalaclone.util.DigitHelper.digitByLocateAndSeparator
+import com.alirahimi.digikalaclone.util.DigitHelper.toomanToDollar
 import java.util.function.IntConsumer
 
 @Composable
@@ -134,7 +137,7 @@ fun AmazingItem(item: AmazingItem) {
                             .wrapContentHeight(Alignment.CenterVertically)
                     ) {
                         Text(
-                            text = "${digitByLocate(item.discountPercent.toString())} %",
+                            text = "${digitByLocateAndSeparator(item.discountPercent.toString())} %",
                             color = Color.White,
                             style = MaterialTheme.typography.h6,
                             fontWeight = FontWeight.Bold
@@ -142,28 +145,30 @@ fun AmazingItem(item: AmazingItem) {
                     }
 
                     Column {
+                        val price = toomanToDollar(item.price)
                         Row {
                             Text(
-                                text = digitByLocateAndSeparator(
-                                    applyDiscount(
-                                        item.price,
-                                        item.discountPercent
-                                    ).toString()
-                                ),
+                                text = digitByLocateAndSeparator(price),
                                 style = MaterialTheme.typography.body2,
                                 fontWeight = FontWeight.SemiBold
                             )
 
                             Icon(
-                                painter = painterResource(id = R.drawable.toman),
+                                painter = amazingPriceLogoChangeByLanguage(),
                                 contentDescription = "",
                                 modifier = Modifier
                                     .size(MaterialTheme.spacing.semiLarge)
                                     .padding(horizontal = MaterialTheme.spacing.extraSmall)
                             )
                         }
+
                         Text(
-                            text = digitByLocateAndSeparator(item.price.toString()),
+                            text = digitByLocateAndSeparator(
+                                applyDiscount(
+                                    price.toLong(),
+                                    item.discountPercent
+                                ).toString()
+                            ),
                             color = Color.LightGray,
                             style = MaterialTheme.typography.body2,
                             textDecoration = TextDecoration.LineThrough
@@ -172,5 +177,14 @@ fun AmazingItem(item: AmazingItem) {
                 }
             }
         }
+    }
+}
+
+@Composable
+private fun amazingPriceLogoChangeByLanguage(): Painter {
+    return if (Constants.USER_LANGUAGE == Constants.ENGLISH_LANGUAGE) {
+        painterResource(id = R.drawable.dollar)
+    } else {
+        painterResource(id = R.drawable.toman)
     }
 }

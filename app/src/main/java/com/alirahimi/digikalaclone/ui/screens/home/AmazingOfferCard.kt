@@ -2,7 +2,6 @@ package com.alirahimi.digikalaclone.ui.screens.home
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
-import androidx.compose.material.Icon
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
 import androidx.compose.material.icons.Icons
@@ -11,12 +10,15 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import com.alirahimi.digikalaclone.ui.theme.spacing
 import com.alirahimi.digikalaclone.R
+import com.alirahimi.digikalaclone.ui.components.IconRotation
+import com.alirahimi.digikalaclone.util.Constants
 
 @Composable
 fun AmazingOfferCard(topImageId: Int, bottomImageId: Int) {
@@ -37,7 +39,7 @@ fun AmazingOfferCard(topImageId: Int, bottomImageId: Int) {
             modifier = Modifier
                 .fillMaxWidth()
                 .height(95.dp),
-            painter = painterResource(id = topImageId),
+            painter = amazingLogoChangeByLanguage(),
             contentDescription = ""
         )
 
@@ -65,11 +67,16 @@ fun AmazingOfferCard(topImageId: Int, bottomImageId: Int) {
                 fontWeight = FontWeight.SemiBold
             )
 
-            Icon(
-                imageVector = Icons.Filled.KeyboardArrowLeft,
-                contentDescription = "",
-                tint = Color.White
-            )
+            IconRotation(imageVector = Icons.Filled.KeyboardArrowLeft)
         }
+    }
+}
+
+@Composable
+private fun amazingLogoChangeByLanguage(): Painter {
+    return if (Constants.USER_LANGUAGE == Constants.ENGLISH_LANGUAGE) {
+        painterResource(id = R.drawable.amazing_en)
+    } else {
+        painterResource(id = R.drawable.amazings)
     }
 }
