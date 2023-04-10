@@ -30,6 +30,8 @@ fun IconRotation(imageVector: ImageVector) {
             imageVector = imageVector,
             contentDescription = "",
             tint = Color.White,
+            modifier = Modifier
+                .size(40.dp)
         )
     }
 }
@@ -51,6 +53,8 @@ fun IconRotation(painter: Painter, tint: Color) {
             painter = painter,
             contentDescription = "",
             tint = tint,
+            modifier = Modifier
+                .size(40.dp)
         )
     }
 }
