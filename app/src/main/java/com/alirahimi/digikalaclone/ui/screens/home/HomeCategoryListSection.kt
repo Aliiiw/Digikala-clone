@@ -24,7 +24,7 @@ import com.alirahimi.digikalaclone.R
 
 @OptIn(ExperimentalLayoutApi::class)
 @Composable
-fun CategoryListSectionSection(viewModel: HomeViewModel = hiltViewModel()) {
+fun HomeCategoryListSection(viewModel: HomeViewModel = hiltViewModel()) {
 
     var loading by remember {
         mutableStateOf(false)
@@ -82,14 +82,14 @@ fun CategoryListSectionSection(viewModel: HomeViewModel = hiltViewModel()) {
         ) {
             categoryList.forEach { item ->
 
-                CategoryItem(item = item)
+                HomeCategoryItem(item = item)
             }
         }
     }
 }
 
 @Composable
-fun CategoryItem(item: MainCategory) {
+fun HomeCategoryItem(item: MainCategory) {
     Column(
         modifier = Modifier
             .size(100.dp, 160.dp),

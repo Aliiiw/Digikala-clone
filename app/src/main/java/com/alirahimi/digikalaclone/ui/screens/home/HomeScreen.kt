@@ -37,7 +37,7 @@ fun Home(navController: NavHostController, viewModel: HomeViewModel = hiltViewMo
 }
 
 @Composable
-fun SwipeRefreshSection(navController: NavHostController, viewModel: HomeViewModel) {
+private fun SwipeRefreshSection(navController: NavHostController, viewModel: HomeViewModel) {
     val refreshScope = rememberCoroutineScope()
     val swipeRefreshState = rememberSwipeRefreshState(isRefreshing = false)
 
@@ -59,7 +59,7 @@ fun SwipeRefreshSection(navController: NavHostController, viewModel: HomeViewMod
             item { AmazingItemsSection() }
             item { ProposalCardSection() }
             item { AmazingSuperMarketItemsSection() }
-            item { CategoryListSectionSection() }
+            item { HomeCategoryListSection() }
             item { CenterBannerSection(bannerNumber = 1) }
             item { BestSellerOfferSection() }
             item { CenterBannerSection(bannerNumber = 2) }

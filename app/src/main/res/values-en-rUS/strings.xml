@@ -21,4 +21,18 @@
     <string name="most_viewed_product">Most Viewed Products</string>
     <string name="most_favorite_product">Most Favorite Products</string>
     <string name="most_discount_product">Most Discount Products</string>
+    <string name="product">Product</string>
+    <string name="industrial_tools_and_equipment">Industrial Tools and Equipments</string>
+    <string name="digital_goods">Digital Products</string>
+    <string name="mobile">Mobile</string>
+    <string name="supermarket_product">Supermarket Product</string>
+    <string name="fashion_and_clothing">Fashion and Clothing</string>
+    <string name="native_and_local_products">Native and Local Products</string>
+    <string name="toys_children_and_babies">Toys, Children and Babies</string>
+    <string name="beauty_and_health">Beauty and Health</string>
+    <string name="home_and_kitchen">Home and Kitchen</string>
+    <string name="books_and_stationery">Books and Stationery</string>
+    <string name="sports_and_travel">Sport and Travel</string>
+
+
 </resources>
