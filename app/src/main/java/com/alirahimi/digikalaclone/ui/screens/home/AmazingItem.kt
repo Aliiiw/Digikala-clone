@@ -26,6 +26,7 @@ import com.alirahimi.digikalaclone.ui.theme.*
 import com.alirahimi.digikalaclone.util.DigitHelper.applyDiscount
 import com.alirahimi.digikalaclone.util.DigitHelper.digitByLocate
 import com.alirahimi.digikalaclone.util.DigitHelper.digitByLocateAndSeparator
+import java.util.function.IntConsumer
 
 @Composable
 fun AmazingItem(item: AmazingItem) {
@@ -53,7 +54,7 @@ fun AmazingItem(item: AmazingItem) {
                     modifier = Modifier.padding(MaterialTheme.spacing.small),
                     style = MaterialTheme.typography.extraSmall,
                     fontWeight = FontWeight.SemiBold,
-                    color = MaterialTheme.colors.digikalaLightRed
+                    color = MaterialTheme.colors.digikalaLightRedText
                 )
 
                 Spacer(modifier = Modifier.height(10.dp))
@@ -153,7 +154,7 @@ fun AmazingItem(item: AmazingItem) {
                                 fontWeight = FontWeight.SemiBold
                             )
 
-                            Image(
+                            Icon(
                                 painter = painterResource(id = R.drawable.toman),
                                 contentDescription = "",
                                 modifier = Modifier

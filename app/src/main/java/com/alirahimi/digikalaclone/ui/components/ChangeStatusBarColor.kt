@@ -1,5 +1,6 @@
 package com.alirahimi.digikalaclone.ui.components
 
+import androidx.compose.material.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.SideEffect
 import androidx.compose.runtime.getValue
@@ -16,6 +17,8 @@ fun ChangeStatusBarColor(navController: NavHostController) {
     val navBackStackEntry by navController.currentBackStackEntryAsState()
     val systemUiController = rememberSystemUiController()
 
+    val statusBarColor = if (MaterialTheme.colors.isLight) Color.White else Color.Black
+
     when (navBackStackEntry?.destination?.route) {
         Screen.Splash.route -> {
             SideEffect {
@@ -27,7 +30,7 @@ fun ChangeStatusBarColor(navController: NavHostController) {
         else -> {
             SideEffect {
                 systemUiController.setStatusBarColor(
-                    color = Color.White
+                    color = statusBarColor
                 )
             }
         }

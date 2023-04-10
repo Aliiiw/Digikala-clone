@@ -21,13 +21,12 @@ import com.alirahimi.digikalaclone.ui.theme.*
 fun MostFavoriteProductsShowMoreCard() {
     Column(
         modifier = Modifier
-            .size(180.dp, 390.dp)
+            .size(180.dp, 320.dp)
             .padding(
                 end = MaterialTheme.spacing.medium,
                 start = MaterialTheme.spacing.semiSmall,
                 top = MaterialTheme.spacing.semiLarge
-            )
-            .background(Color.White),
+            ),
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center
     ) {

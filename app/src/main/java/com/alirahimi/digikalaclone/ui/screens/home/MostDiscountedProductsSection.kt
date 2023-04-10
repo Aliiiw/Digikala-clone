@@ -77,7 +77,6 @@ fun MostDiscountedProductsSection(
         ) {
             mostDiscountedList.forEach { item ->
                 MostDiscountCard(item = item)
-
             }
         }
     }

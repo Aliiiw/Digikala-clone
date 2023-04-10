@@ -65,7 +65,7 @@ fun TopSliderSection(viewModel: HomeViewModel = hiltViewModel()) {
         }
     }
 
-    if (loading){
+    if (loading) {
         val config = LocalConfiguration.current
         MyLoading(height = config.screenHeightDp.dp, isDark = true)
     } else {
@@ -73,7 +73,6 @@ fun TopSliderSection(viewModel: HomeViewModel = hiltViewModel()) {
             modifier = Modifier
                 .fillMaxWidth()
                 .height(200.dp)
-                .background(Color.White)
         ) {
             Column(
                 modifier = Modifier
@@ -156,6 +155,4 @@ fun TopSliderSection(viewModel: HomeViewModel = hiltViewModel()) {
             }
         }
     }
-
-
 }
