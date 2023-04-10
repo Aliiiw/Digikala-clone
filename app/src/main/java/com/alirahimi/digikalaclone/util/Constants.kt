@@ -1,5 +1,6 @@
 package com.alirahimi.digikalaclone.util
 
+import androidx.compose.ui.platform.LocalConfiguration
 import com.alirahimi.digikalaclone.BuildConfig
 
 object Constants {
