@@ -8,6 +8,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.navArgument
 import com.alirahimi.digikalaclone.ui.screens.*
+import com.alirahimi.digikalaclone.ui.screens.category.CategoryScreen
 import com.alirahimi.digikalaclone.ui.screens.home.HomeScreen
 import com.alirahimi.digikalaclone.ui.screens.home.WebPageScreen
 
