@@ -32,6 +32,8 @@
     <string name="home_and_kitchen">خانه و آشپزخانه</string>
     <string name="books_and_stationery">کتاب و لوازم تحریر</string>
     <string name="sports_and_travel">ورزش و سفر</string>
+    <string name="basket_title">سبد خرید</string>
+    <string name="next_baaket_title">لیست خرید بعدی</string>
 
 
 </resources>

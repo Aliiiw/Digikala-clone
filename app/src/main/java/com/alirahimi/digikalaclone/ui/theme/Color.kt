@@ -70,3 +70,7 @@ val Colors.bottomBarColor: Color
 val Colors.lightCyan: Color
     @Composable
     get() = Color(0XFF17BFD3)
+
+val Colors.digikalaRed: Color
+    @Composable
+    get() = Color(0XFFED1B34)

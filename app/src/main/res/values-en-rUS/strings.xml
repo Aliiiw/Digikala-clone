@@ -33,6 +33,8 @@
     <string name="home_and_kitchen">Home and Kitchen</string>
     <string name="books_and_stationery">Books and Stationery</string>
     <string name="sports_and_travel">Sport and Travel</string>
+    <string name="basket_title">Cart</string>
+    <string name="next_baaket_title">Next Cart List</string>
 
 
 </resources>
