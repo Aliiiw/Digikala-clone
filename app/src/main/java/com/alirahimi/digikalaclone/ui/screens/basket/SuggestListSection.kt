@@ -17,6 +17,8 @@ import com.alirahimi.digikalaclone.ui.theme.darkText
 import com.alirahimi.digikalaclone.ui.theme.spacing
 import com.alirahimi.digikalaclone.viewmodel.BasketViewModel
 import com.alirahimi.digikalaclone.R
+import com.alirahimi.digikalaclone.data.model.basket.BasketItem
+import com.alirahimi.digikalaclone.data.model.basket.CartStatus
 
 @OptIn(ExperimentalLayoutApi::class)
 @Composable
@@ -45,7 +47,7 @@ fun SuggestListSection(viewModel: BasketViewModel = hiltViewModel()) {
 
         is NetworkResult.Error -> {
             loading = false
-            Log.e("2323", "Amazing Items error: ${suggestItemResult.message}")
+            Log.e("2323", "Suggest Items error: ${suggestItemResult.message}")
 
         }
 
@@ -81,7 +83,18 @@ fun SuggestListSection(viewModel: BasketViewModel = hiltViewModel()) {
     ) {
         suggestItemList.forEach { item ->
             SuggestionItemCard(item = item) {
-                Log.e("2323", "Clicked!")
+                viewModel.insertBasketItem(
+                    BasketItem(
+                        it._id,
+                        it.name,
+                        it.seller,
+                        it.price,
+                        it.discountPercent,
+                        it.image,
+                        1,
+                        CartStatus.CURRENT_CART
+                    )
+                )
             }
         }
     }
