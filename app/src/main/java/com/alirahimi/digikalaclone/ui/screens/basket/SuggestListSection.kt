@@ -80,7 +80,9 @@ fun SuggestListSection(viewModel: BasketViewModel = hiltViewModel()) {
         horizontalArrangement = Arrangement.Start
     ) {
         suggestItemList.forEach { item ->
-            MostDiscountCard(item = item)
+            SuggestionItemCard(item = item) {
+                Log.e("2323", "Clicked!")
+            }
         }
     }
 }
