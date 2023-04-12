@@ -45,7 +45,7 @@ fun CategoryItem(
         Text(
             modifier = Modifier.padding(horizontal = MaterialTheme.spacing.medium),
             text = stringResource(id = R.string.see_all),
-            style = MaterialTheme.typography.h3,
+            style = MaterialTheme.typography.h4,
             fontWeight = FontWeight.Bold,
             color = MaterialTheme.colors.lightCyan
         )

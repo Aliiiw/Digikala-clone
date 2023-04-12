@@ -34,6 +34,8 @@
     <string name="sports_and_travel">ورزش و سفر</string>
     <string name="basket_title">سبد خرید</string>
     <string name="next_baaket_title">لیست خرید بعدی</string>
+    <string name="cart_empty">سبد خرید شما خالی است!</string>
+    <string name="suggest_for_you">پیشنهاد برای شما</string>
 
 
 </resources>
