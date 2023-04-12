@@ -38,6 +38,11 @@
     <string name="cart_empty">Your Cart is Empty!</string>
     <string name="suggest_for_you">Suggested For You</string>
     <string name="superMarketArcitles">Your Shopping List</string>
+    <string name="warranty">Warranty Authenticity and Physical Health</string>
+    <string name="digikala">Digikala</string>
+    <string name="digikala_send">Digikala Send</string>
+    <string name="fast_send">Fast Delivery</string>
+    <string name="save_to_nextList">Save to Next Shopping List</string>
 
 
 </resources>

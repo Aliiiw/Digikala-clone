@@ -22,5 +22,11 @@ class BasketRepository @Inject constructor(
 
     suspend fun insertBasketItem(cart: BasketItem) = dao.insertBasketItem(cart)
 
+    suspend fun removeFromBasket(item: BasketItem) = dao.removeFromBasket(item)
 
+    suspend fun changeItemStatus(id: String, newCartStatus: CartStatus) =
+        dao.changeItemStatus(id, newCartStatus)
+
+    suspend fun changeCountBasketItem(id: String, newCount: Int) =
+        dao.changeCountBasketItem(id, newCount)
 }

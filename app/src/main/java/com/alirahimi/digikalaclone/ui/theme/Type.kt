@@ -37,6 +37,13 @@ val Typography.extraSmall: TextStyle
         lineHeight = 25.sp
     )
 
+val Typography.veryExtraSmall: TextStyle
+    @Composable
+    get() = TextStyle(
+        fontFamily = font_standard,
+        fontSize = 10.sp
+    )
+
 
 val Typography = Typography(
     body1 = TextStyle(

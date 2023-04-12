@@ -1,9 +1,6 @@
 package com.alirahimi.digikalaclone.data.db
 
-import androidx.room.Dao
-import androidx.room.Insert
-import androidx.room.OnConflictStrategy
-import androidx.room.Query
+import androidx.room.*
 import com.alirahimi.digikalaclone.data.model.basket.BasketItem
 import com.alirahimi.digikalaclone.data.model.basket.CartStatus
 import com.alirahimi.digikalaclone.util.Constants.SHOPPING_CART_TABLE
@@ -16,5 +13,14 @@ interface BasketDao {
 
     @Query("SELECT * FROM $SHOPPING_CART_TABLE WHERE cartStatus=:status")
     fun getAllItems(status: CartStatus): Flow<List<BasketItem>>
+
+    @Delete
+    suspend fun removeFromBasket(item: BasketItem)
+
+    @Query("UPDATE $SHOPPING_CART_TABLE SET cartStatus=:newCartStatus WHERE itemId=:id")
+    suspend fun changeItemStatus(id: String, newCartStatus: CartStatus)
+
+    @Query("UPDATE $SHOPPING_CART_TABLE SET count=:newCount WHERE itemId=:id")
+    suspend fun changeCountBasketItem(id: String, newCount: Int)
 
 }

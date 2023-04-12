@@ -37,6 +37,11 @@
     <string name="cart_empty">سبد خرید شما خالی است!</string>
     <string name="suggest_for_you">پیشنهاد برای شما</string>
     <string name="superMarketArcitles">لیست کالا‌های شما</string>
+    <string name="warranty">گارانتی اصالت و سلامت فیزیکی کالا</string>
+    <string name="digikala">دیجی‌کالا</string>
+    <string name="digikala_send">ارسال دیجی‌کالا</string>
+    <string name="fast_send">ارسال سریع</string>
+    <string name="save_to_nextList">ذخیره در لیست بعدی</string>
 
 
 </resources>
