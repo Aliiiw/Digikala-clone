@@ -35,4 +35,7 @@ object Constants {
     const val MORE_URL =
         "https://www.digikala.com/mehr/?promo_name=mehr&promo_position=circle_badge"
 
+    const val SHOPPING_CART_TABLE = "shopping_cart"
+    const val DATABASE_NAME = "digikala_db"
+
 }
