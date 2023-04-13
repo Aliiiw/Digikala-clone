@@ -43,7 +43,6 @@ fun Basket(viewModel: BasketViewModel = hiltViewModel(), navController: NavHostC
             selectedTabIndex = selectedTabIndex,
             modifier = Modifier.padding(horizontal = MaterialTheme.spacing.medium),
             contentColor = MaterialTheme.colors.digikalaRed,
-            backgroundColor = Color.White,
             indicator = { line ->
                 Box(
                     modifier = Modifier

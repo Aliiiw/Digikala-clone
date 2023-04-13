@@ -4,14 +4,15 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.alirahimi.digikalaclone.data.model.basket.BasketItem
 import com.alirahimi.digikalaclone.data.model.basket.CartStatus
-import com.alirahimi.digikalaclone.data.model.category.CategoryResponse
 import com.alirahimi.digikalaclone.data.model.home.StoreProduct
 import com.alirahimi.digikalaclone.data.remote.NetworkResult
 import com.alirahimi.digikalaclone.repository.BasketRepository
+import com.alirahimi.digikalaclone.ui.screens.basket.BasketScreenState
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -21,7 +22,30 @@ class BasketViewModel @Inject constructor(private val repository: BasketReposito
 
     val suggestedItemsFlow =
         MutableStateFlow<NetworkResult<List<StoreProduct>>>(NetworkResult.Loading())
-    val currentBasketItemsFlow: Flow<List<BasketItem>> = repository.currentBasketItems
+
+    private val _currentBasketItemsFlow: MutableStateFlow<BasketScreenState<List<BasketItem>>> =
+        MutableStateFlow(BasketScreenState.Loading)
+    val currentBasketItems: StateFlow<BasketScreenState<List<BasketItem>>> = _currentBasketItemsFlow
+
+    private val _nextBasketItemsFlow: MutableStateFlow<BasketScreenState<List<BasketItem>>> =
+        MutableStateFlow(BasketScreenState.Loading)
+    val nextBasketItemsFlow: StateFlow<BasketScreenState<List<BasketItem>>> = _nextBasketItemsFlow
+
+    init {
+        viewModelScope.launch(Dispatchers.IO) {
+            launch {
+                repository.currentBasketItems.collectLatest { basketItem ->
+                    _currentBasketItemsFlow.emit(BasketScreenState.Success(basketItem))
+                }
+            }
+
+            launch {
+                repository.nextBasketItems.collectLatest { nextBasketItem ->
+                    _nextBasketItemsFlow.emit(BasketScreenState.Success(nextBasketItem))
+                }
+            }
+        }
+    }
 
     suspend fun getAllDataFromServer() {
         viewModelScope.launch {

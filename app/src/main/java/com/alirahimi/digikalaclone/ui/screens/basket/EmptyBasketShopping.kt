@@ -38,6 +38,5 @@ fun EmptyBasketShopping() {
             style = MaterialTheme.typography.h6,
             color = MaterialTheme.colors.semiDarkText
         )
-
     }
 }
