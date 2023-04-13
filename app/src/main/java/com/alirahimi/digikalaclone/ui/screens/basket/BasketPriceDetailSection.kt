@@ -170,7 +170,7 @@ private fun PriceRow(
     var _price = price
     if (discount > 0) {
         color = MaterialTheme.colors.digikalaLightRed
-        _price = "(${digitByLocateAndSeparator(discount.toString())}%) $price"
+        _price = "(${digitByLocateAndSeparator(discount.toString())}%) $price "
     }
 
     Row(

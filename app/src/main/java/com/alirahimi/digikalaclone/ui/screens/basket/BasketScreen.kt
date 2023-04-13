@@ -21,6 +21,7 @@ import com.alirahimi.digikalaclone.viewmodel.BasketViewModel
 import com.alirahimi.digikalaclone.R
 import com.alirahimi.digikalaclone.ui.theme.digikalaRed
 import com.alirahimi.digikalaclone.ui.theme.spacing
+import kotlinx.coroutines.flow.collectLatest
 
 @Composable
 fun BasketScreen(navController: NavHostController) {
@@ -29,6 +30,9 @@ fun BasketScreen(navController: NavHostController) {
 
 @Composable
 fun Basket(viewModel: BasketViewModel = hiltViewModel(), navController: NavHostController) {
+
+    val currentBasketItemsCount = viewModel.currentBasketItemsCount.collectAsState(0)
+    val nextBasketItemsCount = viewModel.nextBasketItemsCount.collectAsState(0)
 
     var selectedTabIndex by remember {
         mutableStateOf(0)
@@ -107,6 +111,18 @@ fun Basket(viewModel: BasketViewModel = hiltViewModel(), navController: NavHostC
                                     style = MaterialTheme.typography.h6,
                                     fontWeight = FontWeight.SemiBold
                                 )
+
+                                val basketCounter =
+                                    if (index == 0) currentBasketItemsCount.value else nextBasketItemsCount.value
+
+                                if (basketCounter > 0) {
+                                    Spacer(modifier = Modifier.width(10.dp))
+                                    SetBadgeToTab(
+                                        selectedIndex = selectedTabIndex,
+                                        index = index,
+                                        basketCounter = basketCounter
+                                    )
+                                }
                             }
                         }
                     )
