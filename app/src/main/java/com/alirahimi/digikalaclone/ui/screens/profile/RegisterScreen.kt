@@ -24,13 +24,15 @@ import com.alirahimi.digikalaclone.ui.theme.darkText
 import com.alirahimi.digikalaclone.ui.theme.selectedBottomBar
 import com.alirahimi.digikalaclone.ui.theme.spacing
 import com.alirahimi.digikalaclone.util.InputValidation.isValidPassword
+import com.alirahimi.digikalaclone.viewmodel.DataStoreViewModel
 import com.alirahimi.digikalaclone.viewmodel.ProfileViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.collectLatest
 
 @Composable
 fun RegisterScreen(
-    profileViewModel: ProfileViewModel = hiltViewModel()
+    profileViewModel: ProfileViewModel = hiltViewModel(),
+    dataStoreViewModel: DataStoreViewModel = hiltViewModel(),
 ) {
     val context = LocalContext.current
 
@@ -39,8 +41,13 @@ fun RegisterScreen(
             when (loginResponse) {
 
                 is NetworkResult.Success -> {
-                    loginResponse.data?.let {
-                        if (it.token.isNotEmpty()){
+                    loginResponse.data?.let { user ->
+                        if (user.token.isNotEmpty()) {
+                            dataStoreViewModel.saveUserToken(user.token)
+                            dataStoreViewModel.saveUserID(user.id)
+                            dataStoreViewModel.saveUserPhoneNumber(user.phone)
+                            dataStoreViewModel.saveUserPassword(profileViewModel.inputPasswordState)
+
                             profileViewModel.screenState = ProfileScreenState.PROFILE_STATE
                         }
                     }
@@ -125,7 +132,7 @@ fun RegisterScreen(
 
         Spacer(modifier = Modifier.height(MaterialTheme.spacing.medium))
 
-        if(profileViewModel.loadingState){
+        if (profileViewModel.loadingState) {
             ProfileLoadingButton()
         } else {
             ProfileButton(

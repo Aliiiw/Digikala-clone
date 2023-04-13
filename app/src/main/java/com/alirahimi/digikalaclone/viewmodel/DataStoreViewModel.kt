@@ -16,6 +16,10 @@ class DataStoreViewModel @Inject constructor(
 
     companion object {
         const val USER_LANGUAGE_KEY = "USER_LANGUAGE_KEY"
+        const val USER_TOKEN_KEY = "USER_TOKEN_KEY"
+        const val USER_ID_KEY = "USER_ID_KEY"
+        const val USER_PHONE_KEY = "USER_PHONE_KEY"
+        const val USER_PASSWORD_KEY = "USER_PASSWORD_KEY"
     }
 
 
@@ -27,6 +31,46 @@ class DataStoreViewModel @Inject constructor(
 
     fun getUserLanguage(): String = runBlocking {
         repository.getString(key = USER_LANGUAGE_KEY) ?: PERSIAN_LANGUAGE
+    }
+
+    fun saveUserToken(value: String) {
+        viewModelScope.launch {
+            repository.putString(key = USER_TOKEN_KEY, value = value)
+        }
+    }
+
+    fun getUserToken(): String? = runBlocking {
+        repository.getString(key = USER_TOKEN_KEY)
+    }
+
+    fun saveUserID(value: String) {
+        viewModelScope.launch {
+            repository.putString(key = USER_ID_KEY, value = value)
+        }
+    }
+
+    fun getUserID(): String? = runBlocking {
+        repository.getString(key = USER_ID_KEY)
+    }
+
+    fun saveUserPhoneNumber(value: String) {
+        viewModelScope.launch {
+            repository.putString(key = USER_PHONE_KEY, value = value)
+        }
+    }
+
+    fun getUserPhoneNumber(): String? = runBlocking {
+        repository.getString(key = USER_PHONE_KEY)
+    }
+
+    fun saveUserPassword(value: String) {
+        viewModelScope.launch {
+            repository.putString(key = USER_PASSWORD_KEY, value = value)
+        }
+    }
+
+    fun getUserPassword(): String? = runBlocking {
+        repository.getString(key = USER_PASSWORD_KEY)
     }
 
 }
