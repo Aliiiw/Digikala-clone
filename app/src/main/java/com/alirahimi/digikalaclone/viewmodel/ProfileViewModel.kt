@@ -36,8 +36,11 @@ class ProfileViewModel @Inject constructor(private val repository: ProfileReposi
 
     val loginResponseFlow = MutableStateFlow<NetworkResult<LoginResponse>>(NetworkResult.Loading())
 
+    var loadingState by mutableStateOf(false)
+
     fun login() {
         viewModelScope.launch {
+            loadingState = true
             val loginRequest = LoginRequest(phone = inputPhoneState, password = inputPasswordState)
             loginResponseFlow.emit(repository.login(loginRequest))
         }

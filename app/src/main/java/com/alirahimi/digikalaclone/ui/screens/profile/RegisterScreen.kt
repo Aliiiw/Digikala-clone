@@ -23,15 +23,47 @@ import com.alirahimi.digikalaclone.data.remote.NetworkResult
 import com.alirahimi.digikalaclone.ui.theme.darkText
 import com.alirahimi.digikalaclone.ui.theme.selectedBottomBar
 import com.alirahimi.digikalaclone.ui.theme.spacing
-import com.alirahimi.digikalaclone.util.InputValidation
 import com.alirahimi.digikalaclone.util.InputValidation.isValidPassword
 import com.alirahimi.digikalaclone.viewmodel.ProfileViewModel
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.flow.collectLatest
 
 @Composable
 fun RegisterScreen(
     profileViewModel: ProfileViewModel = hiltViewModel()
 ) {
     val context = LocalContext.current
+
+    LaunchedEffect(Dispatchers.Main) {
+        profileViewModel.loginResponseFlow.collectLatest { loginResponse ->
+            when (loginResponse) {
+
+                is NetworkResult.Success -> {
+                    loginResponse.data?.let {
+                        if (it.token.isNotEmpty()){
+                            profileViewModel.screenState = ProfileScreenState.PROFILE_STATE
+                        }
+                    }
+                    Toast.makeText(
+                        context,
+                        loginResponse.message,
+                        Toast.LENGTH_LONG
+                    ).show()
+                    profileViewModel.loadingState = false
+                }
+
+                is NetworkResult.Error -> {
+                    profileViewModel.loadingState = false
+                    Log.e("2323", "Login Response Items error: ${loginResponse.message}")
+                }
+
+                is NetworkResult.Loading -> {
+                    profileViewModel.loadingState = false
+                }
+            }
+        }
+    }
+
 
     Column(
         modifier = Modifier
@@ -93,47 +125,24 @@ fun RegisterScreen(
 
         Spacer(modifier = Modifier.height(MaterialTheme.spacing.medium))
 
-        ProfileButton(
-            text = stringResource(id = R.string.digikala_login),
-            onClick = {
-                if (isValidPassword(profileViewModel.inputPasswordState)) {
-                    profileViewModel.login()
+        if(profileViewModel.loadingState){
+            ProfileLoadingButton()
+        } else {
+            ProfileButton(
+                text = stringResource(id = R.string.digikala_login),
+                onClick = {
+                    if (isValidPassword(profileViewModel.inputPasswordState)) {
+                        profileViewModel.login()
 
-                } else {
-                    Toast.makeText(
-                        context,
-                        context.resources.getText(R.string.password_format_error),
-                        Toast.LENGTH_LONG
-                    ).show()
+                    } else {
+                        Toast.makeText(
+                            context,
+                            context.resources.getText(R.string.password_format_error),
+                            Toast.LENGTH_LONG
+                        ).show()
+                    }
                 }
-            }
-        )
-    }
-
-    var loading by remember {
-        mutableStateOf(false)
-    }
-
-    val loginResponse by profileViewModel.loginResponseFlow.collectAsState()
-    when (loginResponse) {
-
-        is NetworkResult.Success -> {
-            profileViewModel.screenState = ProfileScreenState.PROFILE_STATE
-            Toast.makeText(
-                context,
-                loginResponse.message,
-                Toast.LENGTH_LONG
-            ).show()
-            loading = false
-        }
-
-        is NetworkResult.Error -> {
-            loading = false
-            Log.e("2323", "Login Response Items error: ${loginResponse.message}")
-        }
-
-        is NetworkResult.Loading -> {
-            loading = true
+            )
         }
     }
 }
