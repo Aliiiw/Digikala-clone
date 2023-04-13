@@ -11,6 +11,10 @@ object Constants {
     const val DATASTORE_NAME = "DIGIKALA_DATA_STORE"
 
     var USER_LANGUAGE = "USER_LANGUAGE"
+    var USER_TOKEN = "USER_TOKEN"
+    var USER_ID = "USER_ID"
+    var USER_PHONE = "USER_PHONE"
+    var USER_PASSWORD = "USER_PASSWORD"
 
     const val TIMEOUT_IN_SECOND: Long = 60
 

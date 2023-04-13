@@ -46,4 +46,11 @@ class ProfileViewModel @Inject constructor(private val repository: ProfileReposi
         }
     }
 
+    fun refreshToken(phone: String, password: String) {
+        viewModelScope.launch {
+            val loginRequest = LoginRequest(phone = phone, password = password)
+            loginResponseFlow.emit(repository.login(loginRequest))
+        }
+    }
+
 }
