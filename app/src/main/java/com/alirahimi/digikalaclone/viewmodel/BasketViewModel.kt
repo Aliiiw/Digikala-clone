@@ -2,12 +2,14 @@ package com.alirahimi.digikalaclone.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.alirahimi.digikalaclone.data.model.basket.BasketDetail
 import com.alirahimi.digikalaclone.data.model.basket.BasketItem
 import com.alirahimi.digikalaclone.data.model.basket.CartStatus
 import com.alirahimi.digikalaclone.data.model.home.StoreProduct
 import com.alirahimi.digikalaclone.data.remote.NetworkResult
 import com.alirahimi.digikalaclone.repository.BasketRepository
 import com.alirahimi.digikalaclone.ui.screens.basket.BasketScreenState
+import com.alirahimi.digikalaclone.util.DigitHelper.applyDiscount
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -31,11 +33,23 @@ class BasketViewModel @Inject constructor(private val repository: BasketReposito
         MutableStateFlow(BasketScreenState.Loading)
     val nextBasketItemsFlow: StateFlow<BasketScreenState<List<BasketItem>>> = _nextBasketItemsFlow
 
+    val currentBasketItemsCount = repository.currentBasketItemsCount
+    val nextBasketItemsCount = repository.nextBasketItemsCount
+
+    val basketDetail =
+        MutableStateFlow(BasketDetail(0, 0, 0, 0))
+
     init {
         viewModelScope.launch(Dispatchers.IO) {
             launch {
                 repository.currentBasketItems.collectLatest { basketItem ->
                     _currentBasketItemsFlow.emit(BasketScreenState.Success(basketItem))
+                }
+            }
+
+            launch {
+                repository.currentBasketItems.collectLatest { basketItem ->
+                    calculateCartDetails(basketItem)
                 }
             }
 
@@ -78,4 +92,19 @@ class BasketViewModel @Inject constructor(private val repository: BasketReposito
             repository.changeItemStatus(id, newStatus)
         }
     }
+
+    private fun calculateCartDetails(items: List<BasketItem>) {
+        var totalCount = 0
+        var totalPrice = 0L
+        var totalDiscount = 0L
+        var payablePrice = 0L
+        items.forEach { item ->
+            totalPrice += item.price * item.count
+            payablePrice += applyDiscount(item.price, item.discountPercent) * item.count
+            totalCount += item.count
+        }
+        totalDiscount = totalPrice - payablePrice
+        basketDetail.value = BasketDetail(totalCount, totalPrice, totalDiscount, payablePrice)
+    }
+
 }

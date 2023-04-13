@@ -2,6 +2,7 @@ package com.alirahimi.digikalaclone.ui.screens.basket
 
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Tab
@@ -38,42 +39,84 @@ fun Basket(viewModel: BasketViewModel = hiltViewModel(), navController: NavHostC
         stringResource(id = R.string.next_baaket_title)
     )
 
-    Column {
-        TabRow(
-            selectedTabIndex = selectedTabIndex,
-            modifier = Modifier.padding(horizontal = MaterialTheme.spacing.medium),
-            contentColor = MaterialTheme.colors.digikalaRed,
-            indicator = { line ->
-                Box(
-                    modifier = Modifier
-                        .tabIndicatorOffset(line[selectedTabIndex])
-                        .height(3.dp)
-                        .background(Color.Red)
-                )
-            }
-        ) {
-            tabTitles.forEachIndexed { index, title ->
-                Tab(
-                    selected = (selectedTabIndex == index),
-                    onClick = { selectedTabIndex = index },
-                    selectedContentColor = MaterialTheme.colors.digikalaRed,
-                    unselectedContentColor = Color.Gray,
-                    text = {
-                        Row {
-                            Text(
-                                text = title,
-                                style = MaterialTheme.typography.h6,
-                                fontWeight = FontWeight.SemiBold
-                            )
+    if (isSystemInDarkTheme()) {
+        Column {
+            TabRow(
+                selectedTabIndex = selectedTabIndex,
+                modifier = Modifier.padding(horizontal = MaterialTheme.spacing.medium),
+                contentColor = MaterialTheme.colors.digikalaRed,
+                indicator = { line ->
+                    Box(
+                        modifier = Modifier
+                            .tabIndicatorOffset(line[selectedTabIndex])
+                            .height(3.dp)
+                            .background(Color.Red)
+                    )
+                }
+            ) {
+                tabTitles.forEachIndexed { index, title ->
+                    Tab(
+                        selected = (selectedTabIndex == index),
+                        onClick = { selectedTabIndex = index },
+                        selectedContentColor = MaterialTheme.colors.digikalaRed,
+                        unselectedContentColor = Color.Gray,
+                        text = {
+                            Row {
+                                Text(
+                                    text = title,
+                                    style = MaterialTheme.typography.h6,
+                                    fontWeight = FontWeight.SemiBold
+                                )
+                            }
                         }
-                    }
-                )
+                    )
+                }
+            }
+
+            when (selectedTabIndex) {
+                0 -> ShoppingCart()
+                1 -> NextShoppingCart()
             }
         }
+    } else {
+        Column {
+            TabRow(
+                selectedTabIndex = selectedTabIndex,
+                modifier = Modifier.padding(horizontal = MaterialTheme.spacing.medium),
+                contentColor = MaterialTheme.colors.digikalaRed,
+                backgroundColor = Color.White,
+                indicator = { line ->
+                    Box(
+                        modifier = Modifier
+                            .tabIndicatorOffset(line[selectedTabIndex])
+                            .height(3.dp)
+                            .background(Color.Red)
+                    )
+                }
+            ) {
+                tabTitles.forEachIndexed { index, title ->
+                    Tab(
+                        selected = (selectedTabIndex == index),
+                        onClick = { selectedTabIndex = index },
+                        selectedContentColor = MaterialTheme.colors.digikalaRed,
+                        unselectedContentColor = Color.Gray,
+                        text = {
+                            Row {
+                                Text(
+                                    text = title,
+                                    style = MaterialTheme.typography.h6,
+                                    fontWeight = FontWeight.SemiBold
+                                )
+                            }
+                        }
+                    )
+                }
+            }
 
-        when (selectedTabIndex) {
-            0 -> ShoppingCart()
-            1 -> NextShoppingCart()
+            when (selectedTabIndex) {
+                0 -> ShoppingCart()
+                1 -> NextShoppingCart()
+            }
         }
     }
 }

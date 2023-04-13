@@ -23,4 +23,7 @@ interface BasketDao {
     @Query("UPDATE $SHOPPING_CART_TABLE SET count=:newCount WHERE itemId=:id")
     suspend fun changeCountBasketItem(id: String, newCount: Int)
 
+    @Query("select total(count) as count from $SHOPPING_CART_TABLE where cartStatus=:status")
+    fun getBasketItemsCount(status: CartStatus): Flow<Int>
+
 }

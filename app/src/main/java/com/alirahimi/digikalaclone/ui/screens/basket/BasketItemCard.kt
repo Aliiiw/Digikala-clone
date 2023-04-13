@@ -60,7 +60,6 @@ fun BasketItemCard(
                 verticalAlignment = Alignment.CenterVertically
             ) {
 
-
                 Column {
                     Text(
                         text = stringResource(R.string.superMarketArcitles),
@@ -69,7 +68,11 @@ fun BasketItemCard(
                         color = MaterialTheme.colors.darkText
                     )
                     Text(
-                        text = "${digitByLocateAndSeparator(count.value.toString())}  کالا",
+                        text = "${digitByLocateAndSeparator(count.value.toString())} ${
+                            stringResource(
+                                R.string.goods
+                            )
+                        }",
                         style = MaterialTheme.typography.h6,
                         color = Color.Gray
                     )
@@ -110,7 +113,6 @@ fun BasketItemCard(
                         modifier = Modifier
                             .padding(vertical = MaterialTheme.spacing.extraSmall)
                     )
-
 
                     DetailRow(
                         painterResource(id = R.drawable.warranty),
@@ -177,8 +179,6 @@ fun BasketItemCard(
                                     .padding(1.dp),
                                 tint = MaterialTheme.colors.darkCyan
                             )
-
-
                         }
 
                         Column(Modifier.padding(horizontal = 8.dp)) {
@@ -257,7 +257,6 @@ fun BasketItemCard(
                                     .padding(horizontal = MaterialTheme.spacing.medium)
                             )
 
-
                             if (count.value == 1) {
                                 Icon(
                                     painterResource(id = R.drawable.digi_trash),
@@ -305,24 +304,42 @@ fun BasketItemCard(
                     }
                 }
 
-                Spacer(modifier = Modifier.padding(MaterialTheme.spacing.semiMedium))
+                Spacer(
+                    modifier = Modifier
+                        .padding(MaterialTheme.spacing.semiMedium)
+                )
 
-                Row {
+                val discount = (item.price * item.discountPercent) / 100
+
+                Column() {
                     Text(
-                        text = digitByLocateAndSeparator(item.price.toString()),
-                        style = MaterialTheme.typography.h3,
+                        text = "${digitByLocateAndSeparator(discount.toString())} ${
+                            stringResource(
+                                id = R.string.purchase_discount
+                            )
+                        }",
+                        style = MaterialTheme.typography.extraSmall,
                         fontWeight = FontWeight.SemiBold,
-                        color = MaterialTheme.colors.darkText,
+                        color = MaterialTheme.colors.digikalaLightRed
                     )
+                    Row {
+                        Text(
+                            text = digitByLocateAndSeparator(item.price.toString()),
+                            style = MaterialTheme.typography.h3,
+                            fontWeight = FontWeight.SemiBold,
+                            color = MaterialTheme.colors.darkText,
+                        )
 
-                    Icon(
-                        painter = painterResource(id = R.drawable.toman),
-                        contentDescription = "",
-                        modifier = Modifier
-                            .size(24.dp)
-                            .padding(MaterialTheme.spacing.extraSmall)
-                    )
+                        Icon(
+                            painter = painterResource(id = R.drawable.toman),
+                            contentDescription = "",
+                            modifier = Modifier
+                                .size(24.dp)
+                                .padding(MaterialTheme.spacing.extraSmall)
+                        )
+                    }
                 }
+
             }
 
             Spacer(modifier = Modifier.height(MaterialTheme.spacing.semiLarge))
