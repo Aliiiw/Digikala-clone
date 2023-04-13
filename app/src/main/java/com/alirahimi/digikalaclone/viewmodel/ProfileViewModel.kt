@@ -9,6 +9,8 @@ import com.alirahimi.digikalaclone.data.model.basket.BasketDetail
 import com.alirahimi.digikalaclone.data.model.basket.BasketItem
 import com.alirahimi.digikalaclone.data.model.basket.CartStatus
 import com.alirahimi.digikalaclone.data.model.home.StoreProduct
+import com.alirahimi.digikalaclone.data.model.profile.LoginRequest
+import com.alirahimi.digikalaclone.data.model.profile.LoginResponse
 import com.alirahimi.digikalaclone.data.remote.NetworkResult
 import com.alirahimi.digikalaclone.repository.BasketRepository
 import com.alirahimi.digikalaclone.repository.ProfileRepository
@@ -30,5 +32,15 @@ class ProfileViewModel @Inject constructor(private val repository: ProfileReposi
     var screenState by mutableStateOf(ProfileScreenState.LOGIN_STATE)
 
     var inputPhoneState by mutableStateOf("")
+    var inputPasswordState by mutableStateOf("")
+
+    val loginResponseFlow = MutableStateFlow<NetworkResult<LoginResponse>>(NetworkResult.Loading())
+
+    fun login() {
+        viewModelScope.launch {
+            val loginRequest = LoginRequest(phone = inputPhoneState, password = inputPasswordState)
+            loginResponseFlow.emit(repository.login(loginRequest))
+        }
+    }
 
 }
