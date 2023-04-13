@@ -21,6 +21,8 @@ android {
         versionName "1.0"
 
         buildConfigField("String", "X_API_KEY", apiKeyProperties['X_API_KEY'])
+        buildConfigField("String", "KEY", apiKeyProperties['KEY'])
+        buildConfigField("String", "IV", apiKeyProperties['IV'])
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables {

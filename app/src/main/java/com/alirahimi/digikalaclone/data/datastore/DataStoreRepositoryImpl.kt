@@ -1,13 +1,17 @@
 package com.alirahimi.digikalaclone.data.datastore
 
 import android.content.Context
+import android.util.Log
 import androidx.datastore.core.DataStore
 import androidx.datastore.preferences.core.Preferences
 import androidx.datastore.preferences.core.edit
 import androidx.datastore.preferences.core.intPreferencesKey
 import androidx.datastore.preferences.core.stringPreferencesKey
 import androidx.datastore.preferences.preferencesDataStore
+import com.alirahimi.digikalaclone.util.AES
 import com.alirahimi.digikalaclone.util.Constants.DATASTORE_NAME
+import com.alirahimi.digikalaclone.util.Constants.IV
+import com.alirahimi.digikalaclone.util.Constants.KEY
 import kotlinx.coroutines.flow.first
 import javax.inject.Inject
 
@@ -18,9 +22,10 @@ class DataStoreRepositoryImpl @Inject constructor(
 ) : DataStoreRepository {
 
     override suspend fun putString(key: String, value: String) {
+        val encrypted = AES.encryptAES(value, KEY, IV)
         val preferenceKey = stringPreferencesKey(key)
         context.dataStore.edit { preferences ->
-            preferences[preferenceKey] = value
+            preferences[preferenceKey] = encrypted
         }
     }
 
@@ -35,8 +40,7 @@ class DataStoreRepositoryImpl @Inject constructor(
         return try {
             val preferenceKey = stringPreferencesKey(key)
             val preferences = context.dataStore.data.first()
-            preferences[preferenceKey]
-
+            preferences[preferenceKey]?.let { AES.decryptAES(it, KEY, IV) }
         } catch (e: Exception) {
             e.printStackTrace()
             null

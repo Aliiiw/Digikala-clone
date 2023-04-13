@@ -17,6 +17,7 @@ import com.alirahimi.digikalaclone.navigation.SetupNavGraph
 import com.alirahimi.digikalaclone.ui.components.AppConfig
 import com.alirahimi.digikalaclone.ui.components.ChangeStatusBarColor
 import com.alirahimi.digikalaclone.ui.theme.DigikalaCloneTheme
+import com.alirahimi.digikalaclone.util.AES
 import com.alirahimi.digikalaclone.util.Constants.ENGLISH_LANGUAGE
 import com.alirahimi.digikalaclone.util.Constants.PERSIAN_LANGUAGE
 import com.alirahimi.digikalaclone.util.Constants.USER_LANGUAGE

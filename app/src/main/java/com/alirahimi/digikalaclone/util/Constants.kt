@@ -21,6 +21,8 @@ object Constants {
     const val BASE_URL = "https://dig-za0p.onrender.com/api/"
 
     const val API_KEY = BuildConfig.X_API_KEY
+    const val KEY = BuildConfig.KEY
+    const val IV = BuildConfig.IV
 
 
     const val DIGIJET_URL = "https://www.digikalajet.com/user/address"
