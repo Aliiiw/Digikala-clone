@@ -1,6 +1,7 @@
 package com.alirahimi.digikalaclone.ui.screens.basket
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.Card
 import androidx.compose.material.MaterialTheme
@@ -10,6 +11,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
+import com.alirahimi.digikalaclone.ui.theme.digikalaDarkRed
+import com.alirahimi.digikalaclone.ui.theme.digikalaLightRed
 import com.alirahimi.digikalaclone.ui.theme.digikalaRed
 import com.alirahimi.digikalaclone.ui.theme.spacing
 import com.alirahimi.digikalaclone.util.DigitHelper.digitByLocateAndSeparator
@@ -22,7 +25,7 @@ fun SetBadgeToTab(
 
         var color = Color.Gray
         if (selectedIndex == index) {
-            color = MaterialTheme.colors.digikalaRed
+            color = MaterialTheme.colors.digikalaLightRed
         }
 
         Text(
@@ -33,7 +36,7 @@ fun SetBadgeToTab(
             color = Color.White,
             modifier = Modifier
                 .background(color = color)
-                .padding(horizontal =  MaterialTheme.spacing.semiSmall)
+                .padding(horizontal = MaterialTheme.spacing.small)
         )
     }
 

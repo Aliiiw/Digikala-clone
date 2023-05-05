@@ -2,7 +2,6 @@ package com.alirahimi.digikalaclone.util
 
 import com.alirahimi.digikalaclone.util.Constants.ENGLISH_LANGUAGE
 import com.alirahimi.digikalaclone.util.Constants.USER_LANGUAGE
-import java.math.BigDecimal
 import java.text.DecimalFormat
 
 object DigitHelper {

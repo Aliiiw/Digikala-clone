@@ -2,7 +2,7 @@ package com.alirahimi.digikalaclone.util
 
 import android.content.Context
 import android.content.res.Configuration
-import java.util.Locale
+import java.util.*
 
 object LocaleUtils {
 

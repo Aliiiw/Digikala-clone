@@ -12,7 +12,6 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import coil.compose.rememberAsyncImagePainter
-import com.alirahimi.digikalaclone.data.model.home.StoreProduct
 import com.alirahimi.digikalaclone.ui.theme.darkCyan
 import com.alirahimi.digikalaclone.ui.theme.darkText
 import com.alirahimi.digikalaclone.ui.theme.extraBoldNumber

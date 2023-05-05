@@ -29,6 +29,10 @@ fun Category(
     viewModel: CategoryViewModel = hiltViewModel(),
     navController: NavHostController
 ) {
+    LaunchedEffect(true){
+        refreshDataFromServer(viewModel = viewModel)
+    }
+
     SwipeRefreshSection(navController = navController, viewModel = viewModel)
 }
 

@@ -10,11 +10,11 @@ import androidx.compose.material.MaterialTheme
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.hilt.navigation.compose.hiltViewModel
+import com.alirahimi.digikalaclone.R
 import com.alirahimi.digikalaclone.data.model.home.AmazingItem
 import com.alirahimi.digikalaclone.data.remote.NetworkResult
 import com.alirahimi.digikalaclone.ui.theme.digikalaLightRed
 import com.alirahimi.digikalaclone.viewmodel.HomeViewModel
-import com.alirahimi.digikalaclone.R
 
 @Composable
 fun AmazingItemsSection(viewModel: HomeViewModel = hiltViewModel()) {

@@ -82,6 +82,7 @@ fun CategorySection(viewModel: CategoryViewModel = hiltViewModel()) {
                 homeList = it.home
                 bookList = it.book
                 sportList = it.sport
+
             }
 
             loading = false
@@ -99,7 +100,9 @@ fun CategorySection(viewModel: CategoryViewModel = hiltViewModel()) {
 
     if (loading) {
         val config = LocalConfiguration.current
+
         MyLoading(height = config.screenHeightDp.dp, isDark = true)
+
     } else {
         Column(modifier = Modifier.fillMaxSize()) {
 

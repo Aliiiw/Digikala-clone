@@ -12,9 +12,9 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
-import com.alirahimi.digikalaclone.ui.theme.spacing
 import com.alirahimi.digikalaclone.R
 import com.alirahimi.digikalaclone.ui.theme.semiDarkText
+import com.alirahimi.digikalaclone.ui.theme.spacing
 
 @Composable
 fun EmptyBasketShopping() {

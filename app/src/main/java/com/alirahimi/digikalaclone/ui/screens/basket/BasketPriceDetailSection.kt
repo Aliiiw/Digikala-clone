@@ -1,13 +1,14 @@
 package com.alirahimi.digikalaclone.ui.screens.basket
 
-import androidx.compose.foundation.layout.Column
-import androidx.compose.runtime.Composable
-import androidx.compose.ui.Modifier
-import com.alirahimi.digikalaclone.data.model.basket.BasketDetail
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
-import androidx.compose.material.*
+import androidx.compose.material.Divider
+import androidx.compose.material.Icon
+import androidx.compose.material.MaterialTheme
+import androidx.compose.material.Text
+import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
@@ -16,7 +17,10 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import com.alirahimi.digikalaclone.R
-import com.alirahimi.digikalaclone.ui.theme.*
+import com.alirahimi.digikalaclone.data.model.basket.BasketDetail
+import com.alirahimi.digikalaclone.ui.theme.darkText
+import com.alirahimi.digikalaclone.ui.theme.digikalaLightRed
+import com.alirahimi.digikalaclone.ui.theme.spacing
 import com.alirahimi.digikalaclone.util.DigitHelper.digitByLocateAndSeparator
 
 @Composable

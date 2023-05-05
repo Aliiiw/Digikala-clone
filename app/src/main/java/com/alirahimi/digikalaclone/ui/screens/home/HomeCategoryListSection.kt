@@ -15,12 +15,12 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import coil.compose.rememberAsyncImagePainter
+import com.alirahimi.digikalaclone.R
 import com.alirahimi.digikalaclone.data.model.home.MainCategory
 import com.alirahimi.digikalaclone.data.remote.NetworkResult
 import com.alirahimi.digikalaclone.ui.theme.darkText
 import com.alirahimi.digikalaclone.ui.theme.spacing
 import com.alirahimi.digikalaclone.viewmodel.HomeViewModel
-import com.alirahimi.digikalaclone.R
 
 @OptIn(ExperimentalLayoutApi::class)
 @Composable

@@ -24,8 +24,8 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import coil.compose.rememberAsyncImagePainter
-import com.alirahimi.digikalaclone.data.model.basket.BasketItem
 import com.alirahimi.digikalaclone.R
+import com.alirahimi.digikalaclone.data.model.basket.BasketItem
 import com.alirahimi.digikalaclone.data.model.basket.CartStatus
 import com.alirahimi.digikalaclone.ui.theme.*
 import com.alirahimi.digikalaclone.util.DigitHelper.digitByLocateAndSeparator
@@ -241,7 +241,7 @@ fun BasketItemCard(
                             Icon(
                                 painterResource(id = R.drawable.ic_increase_24),
                                 contentDescription = "increase icon",
-                                tint = MaterialTheme.colors.digikalaRed,
+                                tint = MaterialTheme.colors.digikalaLightRed,
                                 modifier = Modifier.clickable {
                                     count.value++
                                     viewModel.changeBasketItemCount(item.itemId, count.value)
@@ -252,7 +252,7 @@ fun BasketItemCard(
                                 text = digitByLocateAndSeparator(count.value.toString()),
                                 style = MaterialTheme.typography.body2,
                                 fontWeight = FontWeight.SemiBold,
-                                color = MaterialTheme.colors.digikalaRed,
+                                color = MaterialTheme.colors.digikalaLightRed,
                                 modifier = Modifier
                                     .padding(horizontal = MaterialTheme.spacing.medium)
                             )
@@ -261,7 +261,7 @@ fun BasketItemCard(
                                 Icon(
                                     painterResource(id = R.drawable.digi_trash),
                                     contentDescription = "increase icon",
-                                    tint = MaterialTheme.colors.digikalaRed,
+                                    tint = MaterialTheme.colors.digikalaLightRed,
                                     modifier = Modifier.clickable {
                                         viewModel.removeFromBasket(item)
                                     }
@@ -270,7 +270,7 @@ fun BasketItemCard(
                                 Icon(
                                     painterResource(id = R.drawable.ic_decrease_24),
                                     contentDescription = "increase icon",
-                                    tint = MaterialTheme.colors.digikalaRed,
+                                    tint = MaterialTheme.colors.digikalaLightRed,
                                     modifier = Modifier.clickable {
                                         count.value--
                                         viewModel.changeBasketItemCount(item.itemId, count.value)
@@ -290,9 +290,9 @@ fun BasketItemCard(
                             Icon(
                                 painterResource(id = R.drawable.ic_baseline_shopping_cart_checkout),
                                 contentDescription = "increase icon",
-                                tint = MaterialTheme.colors.digikalaRed,
+                                tint = MaterialTheme.colors.digikalaLightRed,
                                 modifier = Modifier
-                                    .size(28.dp)
+                                    .size(26.dp)
                                     .clickable {
                                         viewModel.changeBasketItemStatus(
                                             item.itemId,

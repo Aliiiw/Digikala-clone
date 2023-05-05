@@ -10,13 +10,12 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.hilt.navigation.compose.hiltViewModel
-import androidx.navigation.NavHostController
+import com.alirahimi.digikalaclone.R
 import com.alirahimi.digikalaclone.data.model.home.StoreProduct
 import com.alirahimi.digikalaclone.data.remote.NetworkResult
-import com.alirahimi.digikalaclone.viewmodel.HomeViewModel
-import com.alirahimi.digikalaclone.R
 import com.alirahimi.digikalaclone.ui.theme.darkText
 import com.alirahimi.digikalaclone.ui.theme.spacing
+import com.alirahimi.digikalaclone.viewmodel.HomeViewModel
 
 @OptIn(ExperimentalLayoutApi::class)
 @Composable

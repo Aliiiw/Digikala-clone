@@ -1,7 +1,6 @@
 package com.alirahimi.digikalaclone.repository
 
 import com.alirahimi.digikalaclone.data.model.category.CategoryResponse
-import com.alirahimi.digikalaclone.data.model.home.*
 import com.alirahimi.digikalaclone.data.remote.BaseApiResponse
 import com.alirahimi.digikalaclone.data.remote.CategoryApiInterface
 import com.alirahimi.digikalaclone.data.remote.NetworkResult

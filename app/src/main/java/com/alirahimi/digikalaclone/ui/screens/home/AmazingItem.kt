@@ -21,15 +21,13 @@ import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import coil.compose.rememberAsyncImagePainter
-import com.alirahimi.digikalaclone.data.model.home.AmazingItem
 import com.alirahimi.digikalaclone.R
+import com.alirahimi.digikalaclone.data.model.home.AmazingItem
 import com.alirahimi.digikalaclone.ui.theme.*
 import com.alirahimi.digikalaclone.util.Constants
 import com.alirahimi.digikalaclone.util.DigitHelper.applyDiscount
-import com.alirahimi.digikalaclone.util.DigitHelper.digitByLocate
 import com.alirahimi.digikalaclone.util.DigitHelper.digitByLocateAndSeparator
 import com.alirahimi.digikalaclone.util.DigitHelper.toomanToDollar
-import java.util.function.IntConsumer
 
 @Composable
 fun AmazingItem(item: AmazingItem) {

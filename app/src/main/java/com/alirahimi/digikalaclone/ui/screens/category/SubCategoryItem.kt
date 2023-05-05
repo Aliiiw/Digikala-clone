@@ -1,7 +1,6 @@
 package com.alirahimi.digikalaclone.ui.screens.category
 
 import androidx.compose.foundation.Image
-import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.Card
 import androidx.compose.material.MaterialTheme
@@ -16,10 +15,9 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import coil.compose.rememberAsyncImagePainter
-import com.alirahimi.digikalaclone.data.model.category.SubCategory
 import com.alirahimi.digikalaclone.R
+import com.alirahimi.digikalaclone.data.model.category.SubCategory
 import com.alirahimi.digikalaclone.ui.theme.darkText
-import com.alirahimi.digikalaclone.ui.theme.grayCategory
 import com.alirahimi.digikalaclone.ui.theme.roundedShape
 import com.alirahimi.digikalaclone.ui.theme.spacing
 import com.alirahimi.digikalaclone.util.DigitHelper.digitByLocate

@@ -1,6 +1,5 @@
 package com.alirahimi.digikalaclone.util
 
-import androidx.compose.ui.platform.LocalConfiguration
 import com.alirahimi.digikalaclone.BuildConfig
 
 object Constants {
@@ -18,7 +17,7 @@ object Constants {
 
     const val TIMEOUT_IN_SECOND: Long = 60
 
-    const val BASE_URL = "https://dig-za0p.onrender.com/api/"
+    const val BASE_URL = "https://truelearn-digikala.iran.liara.run/api/"
 
     const val API_KEY = BuildConfig.X_API_KEY
     const val KEY = BuildConfig.KEY

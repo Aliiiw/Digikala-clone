@@ -2,14 +2,13 @@ package com.alirahimi.digikalaclone
 
 import android.annotation.SuppressLint
 import android.os.Bundle
-import android.util.Log
-import androidx.compose.ui.unit.LayoutDirection
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.material.Scaffold
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalLayoutDirection
+import androidx.compose.ui.unit.LayoutDirection
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
 import com.alirahimi.digikalaclone.navigation.BottomNavigationBar
@@ -17,9 +16,7 @@ import com.alirahimi.digikalaclone.navigation.SetupNavGraph
 import com.alirahimi.digikalaclone.ui.components.AppConfig
 import com.alirahimi.digikalaclone.ui.components.ChangeStatusBarColor
 import com.alirahimi.digikalaclone.ui.theme.DigikalaCloneTheme
-import com.alirahimi.digikalaclone.util.AES
 import com.alirahimi.digikalaclone.util.Constants.ENGLISH_LANGUAGE
-import com.alirahimi.digikalaclone.util.Constants.PERSIAN_LANGUAGE
 import com.alirahimi.digikalaclone.util.Constants.USER_LANGUAGE
 import com.alirahimi.digikalaclone.util.LocaleUtils
 import dagger.hilt.android.AndroidEntryPoint

@@ -5,6 +5,7 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.*
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.isTraceInProgress
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -18,6 +19,7 @@ import com.alirahimi.digikalaclone.util.DigitHelper.digitByLocateAndSeparator
 
 @Composable
 fun BuyProcessContinue(price: Long) {
+
     Card(
         shape = MaterialTheme.roundedShape.extraSmall,
         elevation = MaterialTheme.elevation.extraSmall,
@@ -33,10 +35,11 @@ fun BuyProcessContinue(price: Long) {
             verticalAlignment = Alignment.CenterVertically,
             horizontalArrangement = Arrangement.SpaceBetween
         ) {
+
             Button(
                 onClick = { /*TODO*/ },
                 colors = ButtonDefaults.buttonColors(
-                    backgroundColor = MaterialTheme.colors.digikalaRed
+                    backgroundColor = MaterialTheme.colors.digikalaLightRed
                 ),
                 modifier = Modifier,
                 shape = MaterialTheme.roundedShape.small
@@ -69,7 +72,7 @@ fun BuyProcessContinue(price: Long) {
                         fontWeight = FontWeight.SemiBold
                     )
 
-                    Image(
+                    Icon(
                         painter = painterResource(id = R.drawable.toman), contentDescription = "",
                         modifier = Modifier
                             .size(MaterialTheme.spacing.semiLarge)

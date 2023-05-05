@@ -2,6 +2,7 @@ package com.alirahimi.digikalaclone.ui.screens.basket
 
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.background
+import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.Card
 import androidx.compose.material.Icon
@@ -15,10 +16,7 @@ import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
-import com.alirahimi.digikalaclone.ui.theme.digikalaRed
-import com.alirahimi.digikalaclone.ui.theme.extraSmall
-import com.alirahimi.digikalaclone.ui.theme.roundedShape
-import com.alirahimi.digikalaclone.ui.theme.spacing
+import com.alirahimi.digikalaclone.ui.theme.*
 import com.alirahimi.digikalaclone.util.DigitHelper.digitByLocateAndSeparator
 
 @Composable
@@ -51,15 +49,16 @@ fun IconWithBadge(
         ) {
             Card(
                 shape = MaterialTheme.roundedShape.extraSmall,
-                border = BorderStroke(1.dp, Color.White)
+                border = BorderStroke(0.5.dp, Color.White.copy(0.8f)),
+                elevation = 2.dp
             ) {
                 Text(
                     text = digitByLocateAndSeparator(basketCounter.toString()),
                     modifier = Modifier
-                        .background(color = MaterialTheme.colors.digikalaRed)
-                        .height(16.dp)
+                        .background(color = MaterialTheme.colors.digikalaLightRed)
+                        .wrapContentSize()
                         .padding(
-                            horizontal = MaterialTheme.spacing.semiSmall
+                            horizontal = MaterialTheme.spacing.small
                         ),
                     textAlign = TextAlign.Center,
                     style = MaterialTheme.typography.extraSmall,

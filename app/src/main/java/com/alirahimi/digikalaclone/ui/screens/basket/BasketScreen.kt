@@ -17,11 +17,11 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavHostController
-import com.alirahimi.digikalaclone.viewmodel.BasketViewModel
 import com.alirahimi.digikalaclone.R
+import com.alirahimi.digikalaclone.ui.theme.digikalaLightRed
 import com.alirahimi.digikalaclone.ui.theme.digikalaRed
 import com.alirahimi.digikalaclone.ui.theme.spacing
-import kotlinx.coroutines.flow.collectLatest
+import com.alirahimi.digikalaclone.viewmodel.BasketViewModel
 
 @Composable
 fun BasketScreen(navController: NavHostController) {
@@ -54,7 +54,7 @@ fun Basket(viewModel: BasketViewModel = hiltViewModel(), navController: NavHostC
                         modifier = Modifier
                             .tabIndicatorOffset(line[selectedTabIndex])
                             .height(3.dp)
-                            .background(Color.Red)
+                            //.background(Color.Red)
                     )
                 }
             ) {
@@ -62,7 +62,7 @@ fun Basket(viewModel: BasketViewModel = hiltViewModel(), navController: NavHostC
                     Tab(
                         selected = (selectedTabIndex == index),
                         onClick = { selectedTabIndex = index },
-                        selectedContentColor = MaterialTheme.colors.digikalaRed,
+                        selectedContentColor = MaterialTheme.colors.digikalaLightRed,
                         unselectedContentColor = Color.Gray,
                         text = {
                             Row {
@@ -71,6 +71,18 @@ fun Basket(viewModel: BasketViewModel = hiltViewModel(), navController: NavHostC
                                     style = MaterialTheme.typography.h6,
                                     fontWeight = FontWeight.SemiBold
                                 )
+
+                                val basketCounter =
+                                    if (index == 0) currentBasketItemsCount.value else nextBasketItemsCount.value
+
+                                if (basketCounter > 0) {
+                                    Spacer(modifier = Modifier.width(10.dp))
+                                    SetBadgeToTab(
+                                        selectedIndex = selectedTabIndex,
+                                        index = index,
+                                        basketCounter = basketCounter
+                                    )
+                                }
                             }
                         }
                     )
@@ -87,14 +99,14 @@ fun Basket(viewModel: BasketViewModel = hiltViewModel(), navController: NavHostC
             TabRow(
                 selectedTabIndex = selectedTabIndex,
                 modifier = Modifier.padding(horizontal = MaterialTheme.spacing.medium),
-                contentColor = MaterialTheme.colors.digikalaRed,
+                contentColor = MaterialTheme.colors.digikalaLightRed,
                 backgroundColor = Color.White,
                 indicator = { line ->
                     Box(
                         modifier = Modifier
                             .tabIndicatorOffset(line[selectedTabIndex])
                             .height(3.dp)
-                            .background(Color.Red)
+                            //.background(Color.Red)
                     )
                 }
             ) {
@@ -102,7 +114,7 @@ fun Basket(viewModel: BasketViewModel = hiltViewModel(), navController: NavHostC
                     Tab(
                         selected = (selectedTabIndex == index),
                         onClick = { selectedTabIndex = index },
-                        selectedContentColor = MaterialTheme.colors.digikalaRed,
+                        selectedContentColor = MaterialTheme.colors.digikalaLightRed,
                         unselectedContentColor = Color.Gray,
                         text = {
                             Row {

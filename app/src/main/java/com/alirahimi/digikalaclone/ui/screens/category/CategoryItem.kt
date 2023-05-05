@@ -13,11 +13,10 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
-import com.alirahimi.digikalaclone.data.model.category.CategoryResponse
-import com.alirahimi.digikalaclone.ui.theme.spacing
 import com.alirahimi.digikalaclone.R
 import com.alirahimi.digikalaclone.data.model.category.SubCategory
 import com.alirahimi.digikalaclone.ui.theme.lightCyan
+import com.alirahimi.digikalaclone.ui.theme.spacing
 
 @Composable
 fun CategoryItem(
@@ -43,15 +42,15 @@ fun CategoryItem(
             fontWeight = FontWeight.Bold
         )
         Text(
-            modifier = Modifier.padding(horizontal = MaterialTheme.spacing.medium),
+            modifier = Modifier.padding(horizontal = MaterialTheme.spacing.small),
             text = stringResource(id = R.string.see_all),
-            style = MaterialTheme.typography.h4,
+            style = MaterialTheme.typography.h6,
             fontWeight = FontWeight.Bold,
             color = MaterialTheme.colors.lightCyan
         )
     }
 
-    LazyRow(modifier = Modifier.padding(horizontal = MaterialTheme.spacing.extraSmall)) {
+    LazyRow {
         items(subList) { list ->
             SubCategoryItem(item = list)
         }
