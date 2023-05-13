@@ -74,14 +74,18 @@ fun HomeCategoryListSection(viewModel: HomeViewModel = hiltViewModel()) {
             color = MaterialTheme.colors.darkText
         )
 
-        FlowRow(horizontalArrangement = Arrangement.SpaceAround,
+        FlowRow(
+            horizontalArrangement = Arrangement.SpaceAround,
             maxItemsInEachRow = 3,
             modifier = Modifier.fillMaxWidth(
 
             )
         ) {
-            categoryList.forEach { item ->
-
+//            categoryList.forEach { item ->
+//
+//                HomeCategoryItem(item = item)
+//            }
+            for (item in categoryList) {
                 HomeCategoryItem(item = item)
             }
         }

@@ -81,12 +81,31 @@ fun MostFavoriteProductsSection(viewModel: HomeViewModel = hiltViewModel()) {
         }
 
         LazyRow {
-            items(mostFavoriteList) { item ->
-                MostFavoriteProductsOfferCard(item = item)
-            }
-            item {
-                MostFavoriteProductsShowMoreCard()
-            }
+            items(
+                count = mostFavoriteList.size,
+                key = {
+                    mostFavoriteList[it]._id
+                },
+                itemContent = { index ->
+                    val data = mostFavoriteList[index]
+                    MostFavoriteProductsOfferCard(item = data)
+                }
+            )
+
+//            items(mostFavoriteList) { item ->
+//                MostFavoriteProductsOfferCard(item = item)
+//            }
+
+//            item {
+//                MostFavoriteProductsShowMoreCard()
+//            }
+
+            items(
+                count = 1,
+                itemContent = {
+                    MostFavoriteProductsShowMoreCard()
+                }
+            )
         }
     }
 }

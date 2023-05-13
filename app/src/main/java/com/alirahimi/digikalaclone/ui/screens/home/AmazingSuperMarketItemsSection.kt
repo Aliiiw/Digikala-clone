@@ -58,17 +58,50 @@ fun AmazingSuperMarketItemsSection(viewModel: HomeViewModel = hiltViewModel()) {
             .fillMaxWidth()
     ) {
         LazyRow(modifier = Modifier.background(MaterialTheme.colors.digikalaLightGreen)) {
-            item {
-                AmazingOfferCard(topImageId = R.drawable.supermarketamazings, bottomImageId = R.drawable.fresh)
-            }
 
-            items(amazingSuperMarketItemList) { item ->
-                AmazingItem(item = item)
-            }
+//            item {
+//                AmazingOfferCard(
+//                    topImageId = R.drawable.supermarketamazings,
+//                    bottomImageId = R.drawable.fresh
+//                )
+//            }
 
-            item {
-                AmazingShowMoreItems()
-            }
+            items(
+                count = 1,
+                itemContent = {
+                    AmazingOfferCard(
+                        topImageId = R.drawable.supermarketamazings,
+                        bottomImageId = R.drawable.fresh
+                    )
+                }
+            )
+
+
+
+            items(
+                count = amazingSuperMarketItemList.size,
+                key = {
+                    amazingSuperMarketItemList[it]._id
+                },
+                itemContent = { index ->
+                    val data = amazingSuperMarketItemList[index]
+                    AmazingItem(item = data)
+                }
+            )
+
+//            items(amazingSuperMarketItemList) { item ->
+//                AmazingItem(item = item)
+//            }
+
+//            item {
+//                AmazingShowMoreItems()
+//            }
+            items(
+                count = 1,
+                itemContent = {
+                    AmazingShowMoreItems()
+                }
+            )
         }
     }
 }

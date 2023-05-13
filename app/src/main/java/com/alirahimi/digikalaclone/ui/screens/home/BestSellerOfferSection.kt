@@ -78,6 +78,7 @@ fun BestSellerOfferSection(viewModel: HomeViewModel = hiltViewModel()) {
             horizontalArrangement = Arrangement.spacedBy(4.dp),
             verticalArrangement = Arrangement.spacedBy(4.dp)
         ) {
+
             itemsIndexed(bestSellerList) { index, item ->
                 ProductHorizontalCard(
                     name = item.name,

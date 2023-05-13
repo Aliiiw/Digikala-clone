@@ -61,7 +61,10 @@ fun ProposalCardSection(viewModel: HomeViewModel = hiltViewModel()) {
             .height(290.dp)
             .padding(MaterialTheme.spacing.small)
     ) {
-        proposalBannerList.forEach { item ->
+//        proposalBannerList.forEach { item ->
+//            ProposalCardItem(banner = item)
+//        }
+        for (item in proposalBannerList){
             ProposalCardItem(banner = item)
         }
     }

@@ -48,21 +48,46 @@ fun AmazingItemsSection(viewModel: HomeViewModel = hiltViewModel()) {
         }
     }
 
-    Column(modifier = Modifier
-        .background(MaterialTheme.colors.digikalaLightRed)
-        .fillMaxWidth()) {
+    Column(
+        modifier = Modifier
+            .background(MaterialTheme.colors.digikalaLightRed)
+            .fillMaxWidth()
+    ) {
         LazyRow(modifier = Modifier.background(MaterialTheme.colors.digikalaLightRed)) {
-            item {
-                AmazingOfferCard(topImageId = R.drawable.amazings, bottomImageId = R.drawable.box)
-            }
 
-            items(amazingItemList) { item ->
-                AmazingItem(item = item)
-            }
+//            item {
+//                AmazingOfferCard(topImageId = R.drawable.amazings, bottomImageId = R.drawable.box)
+//            }
+            items(
+                count = 1,
+                itemContent = {
+                    AmazingOfferCard(
+                        topImageId = R.drawable.amazings,
+                        bottomImageId = R.drawable.box
+                    )
+                }
+            )
 
-            item {
-                AmazingShowMoreItems()
-            }
+            items(
+                count = amazingItemList.size,
+                key = {
+                    amazingItemList[it]._id
+                },
+                itemContent = { index ->
+                    val data = amazingItemList[index]
+                    AmazingItem(item = data)
+                }
+            )
+//            item {
+//                AmazingShowMoreItems()
+//            }
+            items(
+                count = 1,
+                itemContent = {
+                    AmazingShowMoreItems()
+                }
+            )
+
         }
     }
 }

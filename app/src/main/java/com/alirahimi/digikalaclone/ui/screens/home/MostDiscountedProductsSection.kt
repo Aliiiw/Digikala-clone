@@ -74,7 +74,10 @@ fun MostDiscountedProductsSection(
                 .wrapContentHeight(),
             horizontalArrangement = Arrangement.Start
         ) {
-            mostDiscountedList.forEach { item ->
+//            mostDiscountedList.forEach { item ->
+//                MostDiscountCard(item = item)
+//            }
+            for (item in mostDiscountedList) {
                 MostDiscountCard(item = item)
             }
         }
