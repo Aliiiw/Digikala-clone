@@ -2,9 +2,9 @@
 This is the clone from Digikala Application with Jetpack Compose
 
 ## ScreenShots:
-<img src="/images/h1" width="216" height="468"/> <img src ="/images/h2" width="216" height="468"/> <img src = "/images/h3" width="216" height="468"/>
-<img src="/images/h4" width="270" height="243.5"/> <img src="/images/h5" width="270" height="173.25"/> <img src="/images/d1" width="270" height="174.75"/>
-<img src="/images/l1" width="270" height="174.75"/> <img src="/images/l1" width="270" height="174.75"/>
+<img src="/images/h1" width="300" height="400"/> <img src ="/images/h2" width="300" height="400"/> <img src = "/images/h3" width="300" height="400"/>
+<img src="/images/h4" width="300" height="400"/> <img src="/images/h5" width="300" height="400"/> <img src="/images/d1" width="300" height="400"/>
+<img src="/images/l1" width="300" height="400"/> <img src="/images/l1" width="300" height="400"/>
 
 
 
