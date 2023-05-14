@@ -70,7 +70,8 @@
     <string name="digikala_login">بزن بریم!</string>
     <string name="password_error">اطلاعات وارد شده صحیح نیست</string>
     <string name="password_format_error">پسورد باید حداقل 6 رقم باشد</string>
-
+    <string name="digikala_score">امتیاز دیجی‌کالا</string>
+    <string name="digikala_wallet_active">فعال‌سازی کیف پول</string>
 
 
 </resources>
