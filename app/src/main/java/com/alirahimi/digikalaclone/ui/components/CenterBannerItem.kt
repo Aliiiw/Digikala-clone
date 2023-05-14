@@ -9,6 +9,7 @@ import androidx.compose.material.Card
 import androidx.compose.material.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.unit.dp
 import coil.compose.rememberAsyncImagePainter
@@ -27,6 +28,24 @@ fun CenterBannerItem(imageUrl: String) {
         Image(
             modifier = Modifier.fillMaxSize(),
             painter = rememberAsyncImagePainter(imageUrl),
+            contentDescription = "",
+            contentScale = ContentScale.FillBounds
+        )
+    }
+}
+
+@Composable
+fun CenterBannerItem(painter: Painter) {
+    Card(
+        shape = MaterialTheme.roundedShape.semiMedium,
+        modifier = Modifier
+            .fillMaxWidth()
+            .height(170.dp)
+            .padding(MaterialTheme.spacing.medium)
+    ) {
+        Image(
+            modifier = Modifier.fillMaxSize(),
+            painter = painter,
             contentDescription = "",
             contentScale = ContentScale.FillBounds
         )

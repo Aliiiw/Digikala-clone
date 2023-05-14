@@ -73,6 +73,15 @@
     <string name="password_format_error">Password must be at least 6 digits</string>
     <string name="digikala_score">Digikala Score</string>
     <string name="digikala_wallet_active">Activate your wallet</string>
+    <string name="auth">Authentication</string>
+    <string name="digi_club">Digi Club</string>
+    <string name="contact_us">Contact Us</string>
+    <string name="my_orders">My Orders</string>
+    <string name="digi_unpaid">Waiting to Pay</string>
+    <string name="digi_processing">Processing</string>
+    <string name="digi_returned">Returned</string>
+    <string name="digi_cancel">Canceled</string>
+    <string name="digi_delivered">Delivered</string>
 
 
 </resources>
