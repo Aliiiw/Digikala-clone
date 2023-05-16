@@ -81,6 +81,10 @@
     <string name="digi_returned">مرجوع شده</string>
     <string name="digi_cancel">لغو شده</string>
     <string name="digi_delivered">تحویل داده شده</string>
+    <string name="fav_list">لیست ها</string>
+    <string name="my_comments">نقد و نظرات</string>
+    <string name="addresses">آدرس ها</string>
+    <string name="profile_data">اطلاعات حساب کاربری</string>
 
 
 </resources>

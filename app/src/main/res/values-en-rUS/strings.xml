@@ -82,6 +82,10 @@
     <string name="digi_returned">Returned</string>
     <string name="digi_cancel">Canceled</string>
     <string name="digi_delivered">Delivered</string>
+    <string name="fav_list">Lists</string>
+    <string name="my_comments">Comments</string>
+    <string name="addresses">Addresses</string>
+    <string name="profile_data">Profile Data</string>
 
 
 </resources>

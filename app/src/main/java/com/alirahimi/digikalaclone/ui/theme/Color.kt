@@ -63,6 +63,10 @@ val Colors.digikalaLightRedText: Color
     @Composable
     get() = if (isLight) Color(0XFFEF4056) else Color(0xFFFFFFFF)
 
+val Colors.settingArrow: Color
+    @Composable
+    get() = if (isLight) Color(0XFF9E9FB1) else Color(0xFFD8D8D8)
+
 val Colors.bottomBarColor: Color
     @Composable
     get() = if (isLight) Color(0xFFFFFFFF) else Color(0xFF303235)
