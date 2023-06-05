@@ -88,6 +88,24 @@
     <string name="profile_data">Profile Data</string>
     <string name="login_or_register">Login or SignUp</string>
     <string name="login_or_register_message">Please log in for a better shopping experience and check the shipping method.</string>
+    <string name="address_and_time">Sending address and time</string>
+    <string name="send_to">Send To</string>
+    <string name="add_address">Add address</string>
+    <string name="change_address">Change or edit address</string>
+    <string name="no_address">There is no address to display</string>
+    <string name="cancelled">Canceled</string>
+    <string name="deliveryAndTimeMethod">Delivery method and time</string>
+    <string name="ready_to_send">Ready to send</string>
+    <string name="choose_time">Choose sending time</string>
+    <string name="delivery_1">Delivery 1 of 1</string>
+    <string name="factor_info">"You can receive your purchase invoice after order delivery from the order details section in your user account.</string>
+    <string name="shipping_cost_last_alert">Calculated based on your address, delivery time, weight and volume</string>
+    <string name="delivery_cost">Shipping cost</string>
+    <string name="final_price">Payable amount</string>
+    <string name="cost_details">Cost details</string>
+    <string name="pishtaz_post">Posted by Pishtaz Post</string>
+    <string name="delivery_delay">3 to 5 working days</string>
+
 
 
 </resources>

@@ -87,6 +87,23 @@
     <string name="profile_data">اطلاعات حساب کاربری</string>
     <string name="login_or_register">ورود یا ثبت نام</string>
     <string name="login_or_register_message">برای تجربه بهتر خرید و بررسی روش ارسال کالا ها لطفا وارد شوید.</string>
+    <string name="address_and_time">آدرس و زمان ارسال</string>
+    <string name="send_to">ارسال به</string>
+    <string name="add_address">افزودن آدرس</string>
+    <string name="change_address">تغییر یا ویرایش آدرس</string>
+    <string name="no_address">آدرسی برای نمایش وجود ندارد</string>
+    <string name="cancelled">لغو شده</string>
+    <string name="deliveryAndTimeMethod">شیوه و زمان ارسال</string>
+    <string name="ready_to_send">آماده ارسال</string>
+    <string name="choose_time">انتخاب زمان ارسال</string>
+    <string name="delivery_1">مرسوله 1 از 1</string>
+    <string name="factor_info">"شما می توانید فاکتور خرید خود را پس از تحویل سفارش از بخش جزییات سفارش در حساب کاربری خود دریافت نمایید.</string>
+    <string name="shipping_cost_last_alert">محاسبه شده بر اساس آدرس، زمان تحویل، وزن و حجم مرسوله شما</string>
+    <string name="delivery_cost">هزینه ارسال</string>
+    <string name="final_price">مبلغ قابل پرداخت</string>
+    <string name="cost_details">جزئیات قیمت</string>
+    <string name="pishtaz_post">ارسال توسط پست پیشتاز</string>
+    <string name="delivery_delay">3 تا 5 روز کاری</string>
 
 
 </resources>

@@ -18,7 +18,10 @@ import com.alirahimi.digikalaclone.ui.theme.*
 import com.alirahimi.digikalaclone.util.DigitHelper.digitByLocateAndSeparator
 
 @Composable
-fun BuyProcessContinue(price: Long) {
+fun BuyProcessContinue(
+    price: Long,
+    onClick: () -> Unit
+) {
 
     Card(
         shape = MaterialTheme.roundedShape.extraSmall,
@@ -37,7 +40,7 @@ fun BuyProcessContinue(price: Long) {
         ) {
 
             Button(
-                onClick = { /*TODO*/ },
+                onClick = onClick,
                 colors = ButtonDefaults.buttonColors(
                     backgroundColor = MaterialTheme.colors.digikalaLightRed
                 ),

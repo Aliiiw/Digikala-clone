@@ -19,9 +19,11 @@ import androidx.navigation.NavController
 import com.alirahimi.digikalaclone.R
 import com.alirahimi.digikalaclone.data.model.basket.BasketItem
 import com.alirahimi.digikalaclone.data.model.basket.CartStatus
+import com.alirahimi.digikalaclone.navigation.Screen
 import com.alirahimi.digikalaclone.ui.theme.darkText
 import com.alirahimi.digikalaclone.ui.theme.spacing
 import com.alirahimi.digikalaclone.util.Constants
+import com.alirahimi.digikalaclone.util.Constants.USER_TOKEN
 import com.alirahimi.digikalaclone.viewmodel.BasketViewModel
 
 @Composable
@@ -106,7 +108,13 @@ fun ShoppingCart(
                     .fillMaxWidth()
                     .padding(bottom = 60.dp)
             ) {
-                BuyProcessContinue(basketDetail.value.payablePrice)
+                BuyProcessContinue(basketDetail.value.payablePrice) {
+                    if (USER_TOKEN == "null") {
+                        navController.navigate(Screen.Profile.route)
+                    } else {
+                        navController.navigate(Screen.CheckOut.route)
+                    }
+                }
             }
         }
 
