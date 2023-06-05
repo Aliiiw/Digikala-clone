@@ -54,7 +54,7 @@ fun Basket(viewModel: BasketViewModel = hiltViewModel(), navController: NavHostC
                         modifier = Modifier
                             .tabIndicatorOffset(line[selectedTabIndex])
                             .height(3.dp)
-                            //.background(Color.Red)
+                        //.background(Color.Red)
                     )
                 }
             ) {
@@ -90,8 +90,8 @@ fun Basket(viewModel: BasketViewModel = hiltViewModel(), navController: NavHostC
             }
 
             when (selectedTabIndex) {
-                0 -> ShoppingCart()
-                1 -> NextShoppingCart()
+                0 -> ShoppingCart(navController = navController)
+                1 -> NextShoppingCart(navController = navController)
             }
         }
     } else {
@@ -106,7 +106,7 @@ fun Basket(viewModel: BasketViewModel = hiltViewModel(), navController: NavHostC
                         modifier = Modifier
                             .tabIndicatorOffset(line[selectedTabIndex])
                             .height(3.dp)
-                            //.background(Color.Red)
+                        //.background(Color.Red)
                     )
                 }
             ) {
@@ -142,8 +142,8 @@ fun Basket(viewModel: BasketViewModel = hiltViewModel(), navController: NavHostC
             }
 
             when (selectedTabIndex) {
-                0 -> ShoppingCart()
-                1 -> NextShoppingCart()
+                0 -> ShoppingCart(navController = navController)
+                1 -> NextShoppingCart(navController = navController)
             }
         }
     }

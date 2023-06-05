@@ -25,6 +25,7 @@ import com.alirahimi.digikalaclone.ui.theme.darkText
 import com.alirahimi.digikalaclone.ui.theme.selectedBottomBar
 import com.alirahimi.digikalaclone.ui.theme.spacing
 import com.alirahimi.digikalaclone.util.Constants.USER_PHONE
+import com.alirahimi.digikalaclone.util.Constants.USER_TOKEN
 import com.alirahimi.digikalaclone.util.InputValidation.isValidPassword
 import com.alirahimi.digikalaclone.viewmodel.DataStoreViewModel
 import com.alirahimi.digikalaclone.viewmodel.ProfileViewModel
@@ -49,6 +50,7 @@ fun RegisterScreen(
                             dataStoreViewModel.saveUserID(user.id)
                             dataStoreViewModel.saveUserPhoneNumber(user.phone)
                             USER_PHONE = user.phone
+                            USER_TOKEN = user.token
                             dataStoreViewModel.saveUserPassword(profileViewModel.inputPasswordState)
 
                             profileViewModel.screenState = ProfileScreenState.PROFILE_STATE

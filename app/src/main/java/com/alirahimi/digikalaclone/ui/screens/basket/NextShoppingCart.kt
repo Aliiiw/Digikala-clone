@@ -15,15 +15,20 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.navigation.NavController
 import com.alirahimi.digikalaclone.R
 import com.alirahimi.digikalaclone.data.model.basket.BasketItem
 import com.alirahimi.digikalaclone.data.model.basket.CartStatus
 import com.alirahimi.digikalaclone.ui.theme.darkText
 import com.alirahimi.digikalaclone.ui.theme.spacing
+import com.alirahimi.digikalaclone.util.Constants
 import com.alirahimi.digikalaclone.viewmodel.BasketViewModel
 
 @Composable
-fun NextShoppingCart(viewModel: BasketViewModel = hiltViewModel()) {
+fun NextShoppingCart(
+    viewModel: BasketViewModel = hiltViewModel(),
+    navController: NavController
+) {
 
     val nextBasketItemsState: BasketScreenState<List<BasketItem>>
             by viewModel.nextBasketItemsFlow.collectAsState(BasketScreenState.Loading)
@@ -34,6 +39,11 @@ fun NextShoppingCart(viewModel: BasketViewModel = hiltViewModel()) {
             .wrapContentHeight()
             .padding(bottom = 60.dp)
     ) {
+        item {
+            if (Constants.USER_TOKEN == "null") {
+                LoginOrRegisterSection(navController = navController)
+            }
+        }
 
         when (nextBasketItemsState) {
             is BasketScreenState.Success -> {

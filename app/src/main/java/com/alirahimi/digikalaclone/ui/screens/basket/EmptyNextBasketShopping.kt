@@ -18,17 +18,25 @@ import com.alirahimi.digikalaclone.R
 import com.alirahimi.digikalaclone.ui.theme.darkText
 import com.alirahimi.digikalaclone.ui.theme.semiDarkText
 import com.alirahimi.digikalaclone.ui.theme.spacing
+import com.alirahimi.digikalaclone.util.Constants
 
 @Composable
 fun EmptyNextBasketShopping() {
     val config = LocalConfiguration.current
+    var verticalArrangement: Arrangement.Vertical = Arrangement.Center
+
+    if (Constants.USER_TOKEN == "null") {
+        verticalArrangement = Arrangement.Top
+    }
+
+
     Column(
         modifier = Modifier
             .fillMaxWidth()
             .height(config.screenHeightDp.dp - 60.dp)
             .padding(vertical = MaterialTheme.spacing.small),
         horizontalAlignment = Alignment.CenterHorizontally,
-        verticalArrangement = Arrangement.Center
+        verticalArrangement = verticalArrangement
     ) {
         Image(
             painter = painterResource(id = R.drawable.empty_next_chart),

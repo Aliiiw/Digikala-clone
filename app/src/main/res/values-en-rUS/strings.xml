@@ -86,6 +86,8 @@
     <string name="my_comments">Comments</string>
     <string name="addresses">Addresses</string>
     <string name="profile_data">Profile Data</string>
+    <string name="login_or_register">Login or SignUp</string>
+    <string name="login_or_register_message">Please log in for a better shopping experience and check the shipping method.</string>
 
 
 </resources>
